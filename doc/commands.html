@@ -1,0 +1,203 @@
+<html><head><title>System Extended Functions reference</title>
+<link rel=stylesheet Type=text/css href='../../../../doc/bmxstyle.css'>
+</head><body>
+<table width=100% cellspacing=0><tr align=center><td class=small>&nbsp;</td>
+<td class=small width=1%><b>skn3.systemex:</b></td>
+<td class=small width=1%><a href=#consts class=small>Constants</a></td>
+<td class=small width=1%><a href=#functions class=small>Functions</a></td>
+<td class=small width=1%><a href=#modinfo class=small>Modinfo</a></td>
+<td class=small width=1%><a href='../../../../mod/skn3.mod/systemex.mod/systemex.bmx' class=small>Source</a></td>
+<td class=small>&nbsp;</td></tr></table>
+<h1>System Extended Functions</h1>
+<p>This is a module to add extended system functionality to blitzmax. Most of the functions work for windows and mac (sorry no linux) but please check documentation for each function to confirm support for the platform.</p>
+<h2><a name=consts></a>Constants Summary</h2><table class=doc width=100%><tr><td colspan=2>
+<a href=#OSX_LEOPARD>OSX_LEOPARD</a>
+, 
+<a href=#OSX_LION>OSX_LION</a>
+, 
+<a href=#OSX_SNOW_LEOPARD>OSX_SNOW_LEOPARD</a>
+, 
+<a href=#OSX_TIGER>OSX_TIGER</a>
+, 
+<a href=#OSX_UNKNOWN>OSX_UNKNOWN</a>
+, 
+<a href=#WINDOWS_2000>WINDOWS_2000</a>
+, 
+<a href=#WINDOWS_2003>WINDOWS_2003</a>
+, 
+<a href=#WINDOWS_7>WINDOWS_7</a>
+, 
+<a href=#WINDOWS_UNKNOWN>WINDOWS_UNKNOWN</a>
+, 
+<a href=#WINDOWS_VISTA>WINDOWS_VISTA</a>
+, 
+<a href=#WINDOWS_XP>WINDOWS_XP</a>
+</td></tr>
+</table>
+<h2><a name=functions></a>Functions Summary</h2><table class=doc width=100%>
+<tr><td class=docleft width=1%><a href=#GetOsVersion>GetOsVersion</a></td><td class=docright>
+Determin the operating system version. <b>[Win Mac]</b>
+</td></tr>
+<tr><td class=docleft width=1%><a href=#GetTempDirectory>GetTempDirectory</a></td><td class=docright>
+Find the path to the temp directory. <b>[Win Mac]</b>
+</td></tr>
+<tr><td class=docleft width=1%><a href=#IsKeyDown>IsKeyDown</a></td><td class=docright>
+Check with the operating system if a speciffic key is pressed. <b>[Win Mac]</b>
+</td></tr>
+<tr><td class=docleft width=1%><a href=#RequestFiles>RequestFiles</a></td><td class=docright>
+Request multiple files using the os file dialogue. <b>[Win Mac]</b>
+</td></tr>
+<tr><td class=docleft width=1%><a href=#TranslateKey>TranslateKey</a></td><td class=docright>
+Convert certain keycodes from blitz to os codes. <b>[Win Mac]</b>
+</td></tr>
+</table>
+<h2
+ id=constsdet>Constants
+</h2>
+<table class=doc width=100% cellspacing=3 id=OSX_LEOPARD>
+<tr><td class=doctop colspan=2>Const OSX_LEOPARD:Int</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>OS X Leopard.</td></tr>
+</table>
+<br>
+<table class=doc width=100% cellspacing=3 id=OSX_LION>
+<tr><td class=doctop colspan=2>Const OSX_LION:Int</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>OS X Lion.</td></tr>
+</table>
+<br>
+<table class=doc width=100% cellspacing=3 id=OSX_SNOW_LEOPARD>
+<tr><td class=doctop colspan=2>Const OSX_SNOW_LEOPARD:Int</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>OS X Snow Leopard.</td></tr>
+</table>
+<br>
+<table class=doc width=100% cellspacing=3 id=OSX_TIGER>
+<tr><td class=doctop colspan=2>Const OSX_TIGER:Int</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>OS X Tiger.</td></tr>
+</table>
+<br>
+<table class=doc width=100% cellspacing=3 id=OSX_UNKNOWN>
+<tr><td class=doctop colspan=2>Const OSX_UNKNOWN:Int</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>Unknown osx version.</td></tr>
+</table>
+<br>
+<table class=doc width=100% cellspacing=3 id=WINDOWS_2000>
+<tr><td class=doctop colspan=2>Const WINDOWS_2000:Int</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>Windows 2000.</td></tr>
+</table>
+<br>
+<table class=doc width=100% cellspacing=3 id=WINDOWS_2003>
+<tr><td class=doctop colspan=2>Const WINDOWS_2003:Int</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>Windows 2003.</td></tr>
+</table>
+<br>
+<table class=doc width=100% cellspacing=3 id=WINDOWS_7>
+<tr><td class=doctop colspan=2>Const WINDOWS_7:Int</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>Windows 7.</td></tr>
+</table>
+<br>
+<table class=doc width=100% cellspacing=3 id=WINDOWS_UNKNOWN>
+<tr><td class=doctop colspan=2>Const WINDOWS_UNKNOWN:Int</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>Unknown windows version.</td></tr>
+</table>
+<br>
+<table class=doc width=100% cellspacing=3 id=WINDOWS_VISTA>
+<tr><td class=doctop colspan=2>Const WINDOWS_VISTA:Int</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>Windows Vista (yuck!)</td></tr>
+</table>
+<br>
+<table class=doc width=100% cellspacing=3 id=WINDOWS_XP>
+<tr><td class=doctop colspan=2>Const WINDOWS_XP:Int</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>Windows XP.</td></tr>
+</table>
+<br>
+<h2
+ id=functionsdet>Functions
+</h2>
+<table class=doc width=100% cellspacing=3 id=GetOsVersion>
+<tr><td class=doctop colspan=2>Function GetOsVersion:Int()</td></tr>
+<tr><td class=docleft width=1%>Returns</td><td class=docright>An integer constant identifying the os.</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>Determin the operating system version. <b>[Win Mac]</b></td></tr>
+<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
+<ul>
+<li>Windows</li>
+<li>Mac</li>
+</ul>
+<b>Info</b>
+<p>This function will determin the version of the os currently running. Subsequent calls to this function will use the previous result so the system wont be polled more than once. The operating system return values are larger for a newer versions so its possible to use greater/lower conditional checks. eg If os > WINDOWS_XP</p>
+<b>Windows Constants</b>
+<ul>
+<li>WINDOWS_UNKNOWN = 0</li>
+<li>WINDOWS_2000 = 1</li>
+<li>WINDOWS_XP = 2</li>
+<li>WINDOWS_2003 = 3</li>
+<li>WINDOWS_VISTA = 4</li>
+<li>WINDOWS_7 = 5</li>
+</ul>
+<b>Mac Constants</b>
+<ul>
+<li>OSX_UNKNOWN = 0</li>
+<li>OSX_TIGER = 1</li>
+<li>OSX_LEOPARD = 2</li>
+<li>OSX_SNOW_LEOPARD = 3</li>
+<li>OSX_LION = 4</li>
+</ul></td></tr>
+</table>
+<br>
+<table class=doc width=100% cellspacing=3 id=GetTempDirectory>
+<tr><td class=doctop colspan=2>Function GetTempDirectory:String(resetCache:Int=False)</td></tr>
+<tr><td class=docleft width=1%>Returns</td><td class=docright>A string containing the path to the temp directory.</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>Find the path to the temp directory. <b>[Win Mac]</b></td></tr>
+<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
+<ul>
+<li>Windows</li>
+<li>Mac</li>
+</ul>
+<b>Info</b>
+<p>This function will find out the operating systems temp directory and return it. The function caches the result so the system won't be polled more than once.</p></td></tr>
+</table>
+<br>
+<table class=doc width=100% cellspacing=3 id=IsKeyDown>
+<tr><td class=doctop colspan=2>Function IsKeyDown:Int(Code:Int)</td></tr>
+<tr><td class=docleft width=1%>Returns</td><td class=docright>An true or false.</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>Check with the operating system if a speciffic key is pressed. <b>[Win Mac]</b></td></tr>
+<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
+<ul>
+<li>Windows</li>
+<li>Mac</li>
+</ul>
+<b>Info</b>
+<p>This function uses the <a href=#TranslateKey>TranslateKey</a> function to map blitz keycodes to os keycodes and then ask the os if that key is pressed. With this functionality you can check to see if a key is being pressed without having to rely on any built in blitz mechanics. Good for example if you wanted to write a custom gadget that needed to check a keys state when it didnt currently capture the keyboard.</p>
+<p>The blitzmax mouse keycodes will only translate on windows so do not use them here!</p></td></tr>
+</table>
+<br>
+<table class=doc width=100% cellspacing=3 id=RequestFiles>
+<tr><td class=doctop colspan=2>Function RequestFiles:String[](text:String,exts:String,save:Int,multiple:Int,path:String)</td></tr>
+<tr><td class=docleft width=1%>Returns</td><td class=docright>An array of paths.</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>Request multiple files using the os file dialogue. <b>[Win Mac]</b></td></tr>
+<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
+<ul>
+<li>Windows</li>
+<li>Mac</li>
+</ul>
+<b>Info</b>
+<p>This works exactly like the RequestFile() function but just lets you pick multiple files!</p></td></tr>
+</table>
+<br>
+<table class=doc width=100% cellspacing=3 id=TranslateKey>
+<tr><td class=doctop colspan=2>Function TranslateKey:Int(Code:Int)</td></tr>
+<tr><td class=docleft width=1%>Returns</td><td class=docright>An int > 0 or 0 if could not translate.</td></tr>
+<tr><td class=docleft width=1%>Description</td><td class=docright>Convert certain keycodes from blitz to os codes. <b>[Win Mac]</b></td></tr>
+<tr><td class=docleft width=1%>Information</td><td class=docright><b>Supported Platforms</b>
+<ul>
+<li>Windows</li>
+<li>Mac</li>
+</ul>
+<b>Info</b>
+<p>This function has only been tested wit the 'space' key but the other keycodes have been entered as best as I could find on the internet! Sorry I do not have the time to support!</p>
+<p><b>IMPORTANT!</b><br>Please note that the keycodes have not all been tested to be correctly defined if you notice weird keyboard read out then please do correct the mistake!</p></td></tr>
+</table>
+<br>
+<h2 id=modinfo>Module Information</h2>
+<table width=100%>
+<tr><th width=1%>History</th><td>1.00</td></tr>
+<tr><th width=1%>History</th><td>Initial Release To Public</td></tr>
+</body></html>
