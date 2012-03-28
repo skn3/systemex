@@ -1,4 +1,4 @@
-#include <brl.mod/system.mod/system.win32.c>
+#include "systemex.h"
 
 BBString *skn3_requestFile( BBString *text,BBString *exts,int defext,int save,int multiple,BBString *file,BBString *dir ){
 

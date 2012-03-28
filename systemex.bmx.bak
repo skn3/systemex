@@ -8,13 +8,14 @@ Module skn3.systemex
 ModuleInfo "History: 1.00"
 ModuleInfo "History: Initial Release To Public"
 
+Import brl.keycodes
+Import brl.bank
+
 SuperStrict
 
 
 ?Win32
 'imports
-Import brl.keycodes
-Import brl.bank
 Import "systemex.win.c"
 
 'constants
@@ -180,8 +181,6 @@ EndExtern
 ?MacOs
 
 'imports
-Import brl.keycodes
-Import brl.bank
 Import "systemex.mac.m"
 
 'constants

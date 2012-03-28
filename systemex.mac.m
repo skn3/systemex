@@ -1,5 +1,4 @@
-#import <Cocoa/Cocoa.h>
-#import <brl.mod/system.mod/system.macos.m>
+#import <skn3.mod/systemex.mod/systemex.h>
 
 void skn3_getOsVersionInfo(unsigned *major, unsigned *minor, unsigned *bugFix) {
     OSErr err;

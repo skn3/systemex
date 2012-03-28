@@ -2054,7 +2054,7 @@ _35:
 	.align	4
 _34:
 	.long	_35
-	.long	208
+	.long	211
 	.long	1
 	.align	4
 _39:
@@ -2064,532 +2064,532 @@ _36:
 	.align	4
 _41:
 	.long	_35
-	.long	209
+	.long	212
 	.long	1
 	.align	4
 _45:
 	.long	_35
-	.long	210
+	.long	213
 	.long	1
 	.align	4
 _49:
 	.long	_35
-	.long	211
+	.long	214
 	.long	1
 	.align	4
 _53:
 	.long	_35
-	.long	213
+	.long	216
 	.long	1
 	.align	4
 _57:
 	.long	_35
-	.long	214
+	.long	217
 	.long	1
 	.align	4
 _61:
 	.long	_35
-	.long	215
+	.long	218
 	.long	1
 	.align	4
 _65:
 	.long	_35
-	.long	216
+	.long	219
 	.long	1
 	.align	4
 _69:
 	.long	_35
-	.long	217
+	.long	220
 	.long	1
 	.align	4
 _73:
 	.long	_35
-	.long	218
+	.long	221
 	.long	1
 	.align	4
 _77:
 	.long	_35
-	.long	219
+	.long	222
 	.long	1
 	.align	4
 _81:
 	.long	_35
-	.long	220
+	.long	223
 	.long	1
 	.align	4
 _85:
 	.long	_35
-	.long	221
+	.long	224
 	.long	1
 	.align	4
 _89:
 	.long	_35
-	.long	222
+	.long	225
 	.long	1
 	.align	4
 _93:
 	.long	_35
-	.long	223
+	.long	226
 	.long	1
 	.align	4
 _97:
 	.long	_35
-	.long	225
+	.long	228
 	.long	1
 	.align	4
 _101:
 	.long	_35
-	.long	226
+	.long	229
 	.long	1
 	.align	4
 _105:
 	.long	_35
-	.long	227
+	.long	230
 	.long	1
 	.align	4
 _109:
 	.long	_35
-	.long	228
+	.long	231
 	.long	1
 	.align	4
 _113:
 	.long	_35
-	.long	230
+	.long	233
 	.long	1
 	.align	4
 _117:
 	.long	_35
-	.long	231
+	.long	234
 	.long	1
 	.align	4
 _121:
 	.long	_35
-	.long	232
+	.long	235
 	.long	1
 	.align	4
 _125:
 	.long	_35
-	.long	233
+	.long	236
 	.long	1
 	.align	4
 _129:
 	.long	_35
-	.long	234
+	.long	237
 	.long	1
 	.align	4
 _133:
 	.long	_35
-	.long	235
+	.long	238
 	.long	1
 	.align	4
 _137:
 	.long	_35
-	.long	237
+	.long	240
 	.long	1
 	.align	4
 _141:
 	.long	_35
-	.long	238
+	.long	241
 	.long	1
 	.align	4
 _145:
 	.long	_35
-	.long	239
+	.long	242
 	.long	1
 	.align	4
 _149:
 	.long	_35
-	.long	240
+	.long	243
 	.long	1
 	.align	4
 _153:
 	.long	_35
-	.long	241
+	.long	244
 	.long	1
 	.align	4
 _157:
 	.long	_35
-	.long	242
+	.long	245
 	.long	1
 	.align	4
 _161:
 	.long	_35
-	.long	243
+	.long	246
 	.long	1
 	.align	4
 _165:
 	.long	_35
-	.long	244
+	.long	247
 	.long	1
 	.align	4
 _169:
 	.long	_35
-	.long	245
+	.long	248
 	.long	1
 	.align	4
 _173:
 	.long	_35
-	.long	246
+	.long	249
 	.long	1
 	.align	4
 _177:
 	.long	_35
-	.long	247
+	.long	250
 	.long	1
 	.align	4
 _181:
 	.long	_35
-	.long	248
+	.long	251
 	.long	1
 	.align	4
 _185:
 	.long	_35
-	.long	249
+	.long	252
 	.long	1
 	.align	4
 _189:
 	.long	_35
-	.long	250
+	.long	253
 	.long	1
 	.align	4
 _193:
 	.long	_35
-	.long	251
+	.long	254
 	.long	1
 	.align	4
 _197:
 	.long	_35
-	.long	252
+	.long	255
 	.long	1
 	.align	4
 _201:
 	.long	_35
-	.long	253
+	.long	256
 	.long	1
 	.align	4
 _205:
 	.long	_35
-	.long	254
+	.long	257
 	.long	1
 	.align	4
 _209:
 	.long	_35
-	.long	255
+	.long	258
 	.long	1
 	.align	4
 _213:
 	.long	_35
-	.long	256
+	.long	259
 	.long	1
 	.align	4
 _217:
 	.long	_35
-	.long	257
+	.long	260
 	.long	1
 	.align	4
 _221:
 	.long	_35
-	.long	258
+	.long	261
 	.long	1
 	.align	4
 _225:
 	.long	_35
-	.long	259
+	.long	262
 	.long	1
 	.align	4
 _229:
 	.long	_35
-	.long	260
+	.long	263
 	.long	1
 	.align	4
 _233:
 	.long	_35
-	.long	261
+	.long	264
 	.long	1
 	.align	4
 _237:
 	.long	_35
-	.long	262
+	.long	265
 	.long	1
 	.align	4
 _241:
 	.long	_35
-	.long	263
+	.long	266
 	.long	1
 	.align	4
 _245:
 	.long	_35
-	.long	264
+	.long	267
 	.long	1
 	.align	4
 _249:
 	.long	_35
-	.long	265
+	.long	268
 	.long	1
 	.align	4
 _253:
 	.long	_35
-	.long	266
+	.long	269
 	.long	1
 	.align	4
 _257:
 	.long	_35
-	.long	267
+	.long	270
 	.long	1
 	.align	4
 _261:
 	.long	_35
-	.long	268
+	.long	271
 	.long	1
 	.align	4
 _265:
 	.long	_35
-	.long	269
+	.long	272
 	.long	1
 	.align	4
 _269:
 	.long	_35
-	.long	270
+	.long	273
 	.long	1
 	.align	4
 _273:
 	.long	_35
-	.long	271
+	.long	274
 	.long	1
 	.align	4
 _277:
 	.long	_35
-	.long	272
+	.long	275
 	.long	1
 	.align	4
 _281:
 	.long	_35
-	.long	274
+	.long	277
 	.long	1
 	.align	4
 _285:
 	.long	_35
-	.long	275
+	.long	278
 	.long	1
 	.align	4
 _289:
 	.long	_35
-	.long	276
+	.long	279
 	.long	1
 	.align	4
 _293:
 	.long	_35
-	.long	277
+	.long	280
 	.long	1
 	.align	4
 _297:
 	.long	_35
-	.long	278
+	.long	281
 	.long	1
 	.align	4
 _301:
 	.long	_35
-	.long	279
+	.long	282
 	.long	1
 	.align	4
 _305:
 	.long	_35
-	.long	280
+	.long	283
 	.long	1
 	.align	4
 _309:
 	.long	_35
-	.long	281
+	.long	284
 	.long	1
 	.align	4
 _313:
 	.long	_35
-	.long	282
+	.long	285
 	.long	1
 	.align	4
 _317:
 	.long	_35
-	.long	283
+	.long	286
 	.long	1
 	.align	4
 _321:
 	.long	_35
-	.long	285
+	.long	288
 	.long	1
 	.align	4
 _325:
 	.long	_35
-	.long	286
+	.long	289
 	.long	1
 	.align	4
 _329:
 	.long	_35
-	.long	287
+	.long	290
 	.long	1
 	.align	4
 _333:
 	.long	_35
-	.long	288
+	.long	291
 	.long	1
 	.align	4
 _337:
 	.long	_35
-	.long	289
+	.long	292
 	.long	1
 	.align	4
 _341:
 	.long	_35
-	.long	291
+	.long	294
 	.long	1
 	.align	4
 _345:
 	.long	_35
-	.long	292
+	.long	295
 	.long	1
 	.align	4
 _349:
 	.long	_35
-	.long	293
+	.long	296
 	.long	1
 	.align	4
 _353:
 	.long	_35
-	.long	294
+	.long	297
 	.long	1
 	.align	4
 _357:
 	.long	_35
-	.long	295
+	.long	298
 	.long	1
 	.align	4
 _361:
 	.long	_35
-	.long	296
+	.long	299
 	.long	1
 	.align	4
 _365:
 	.long	_35
-	.long	297
+	.long	300
 	.long	1
 	.align	4
 _369:
 	.long	_35
-	.long	298
+	.long	301
 	.long	1
 	.align	4
 _373:
 	.long	_35
-	.long	299
+	.long	302
 	.long	1
 	.align	4
 _377:
 	.long	_35
-	.long	300
+	.long	303
 	.long	1
 	.align	4
 _381:
 	.long	_35
-	.long	301
+	.long	304
 	.long	1
 	.align	4
 _385:
 	.long	_35
-	.long	302
+	.long	305
 	.long	1
 	.align	4
 _389:
 	.long	_35
-	.long	304
+	.long	307
 	.long	1
 	.align	4
 _393:
 	.long	_35
-	.long	305
+	.long	308
 	.long	1
 	.align	4
 _397:
 	.long	_35
-	.long	306
+	.long	309
 	.long	1
 	.align	4
 _401:
 	.long	_35
-	.long	308
+	.long	311
 	.long	1
 	.align	4
 _405:
 	.long	_35
-	.long	309
+	.long	312
 	.long	1
 	.align	4
 _409:
 	.long	_35
-	.long	310
+	.long	313
 	.long	1
 	.align	4
 _413:
 	.long	_35
-	.long	312
+	.long	315
 	.long	1
 	.align	4
 _417:
 	.long	_35
-	.long	313
+	.long	316
 	.long	1
 	.align	4
 _421:
 	.long	_35
-	.long	315
+	.long	318
 	.long	1
 	.align	4
 _425:
 	.long	_35
-	.long	316
+	.long	319
 	.long	1
 	.align	4
 _429:
 	.long	_35
-	.long	317
+	.long	320
 	.long	1
 	.align	4
 _433:
 	.long	_35
-	.long	319
+	.long	322
 	.long	1
 	.align	4
 _437:
 	.long	_35
-	.long	320
+	.long	323
 	.long	1
 	.align	4
 _441:
 	.long	_35
-	.long	321
+	.long	324
 	.long	1
 	.align	4
 _445:
 	.long	_35
-	.long	322
+	.long	325
 	.long	1
 	.align	4
 _449:
 	.long	_35
-	.long	323
+	.long	326
 	.long	1
 	.align	4
 _453:
 	.long	_35
-	.long	324
+	.long	327
 	.long	1
 	.align	4
 _457:
 	.long	_35
-	.long	325
+	.long	328
 	.long	1
 	.align	4
 _461:
 	.long	_35
-	.long	326
+	.long	329
 	.long	1
 _550:
 	.asciz	"RequestFiles"
@@ -2663,12 +2663,12 @@ _549:
 	.align	4
 _482:
 	.long	_35
-	.long	420
+	.long	423
 	.long	3
 	.align	4
 _486:
 	.long	_35
-	.long	422
+	.long	425
 	.long	3
 	.align	4
 _2:
@@ -2685,12 +2685,12 @@ _1:
 	.align	4
 _487:
 	.long	_35
-	.long	423
+	.long	426
 	.long	3
 	.align	4
 _489:
 	.long	_35
-	.long	424
+	.long	427
 	.long	3
 	.align	4
 _493:
@@ -2700,12 +2700,12 @@ _493:
 	.align	4
 _491:
 	.long	_35
-	.long	425
+	.long	428
 	.long	4
 	.align	4
 _492:
 	.long	_35
-	.long	426
+	.long	429
 	.long	4
 	.align	4
 _496:
@@ -2715,12 +2715,12 @@ _496:
 	.align	4
 _495:
 	.long	_35
-	.long	428
+	.long	431
 	.long	4
 	.align	4
 _497:
 	.long	_35
-	.long	431
+	.long	434
 	.long	3
 	.align	4
 _4:
@@ -2737,7 +2737,7 @@ _3:
 	.align	4
 _498:
 	.long	_35
-	.long	432
+	.long	435
 	.long	3
 _516:
 	.asciz	"p"
@@ -2759,12 +2759,12 @@ _515:
 	.align	4
 _499:
 	.long	_35
-	.long	433
+	.long	436
 	.long	4
 	.align	4
 _501:
 	.long	_35
-	.long	434
+	.long	437
 	.long	4
 	.align	4
 _504:
@@ -2774,12 +2774,12 @@ _504:
 	.align	4
 _503:
 	.long	_35
-	.long	434
+	.long	437
 	.long	11
 	.align	4
 _505:
 	.long	_35
-	.long	435
+	.long	438
 	.long	4
 	.align	4
 _8:
@@ -2790,7 +2790,7 @@ _8:
 	.align	4
 _507:
 	.long	_35
-	.long	436
+	.long	439
 	.long	4
 	.align	4
 _512:
@@ -2800,22 +2800,22 @@ _512:
 	.align	4
 _511:
 	.long	_35
-	.long	436
+	.long	439
 	.long	18
 	.align	4
 _513:
 	.long	_35
-	.long	437
+	.long	440
 	.long	4
 	.align	4
 _514:
 	.long	_35
-	.long	438
+	.long	441
 	.long	4
 	.align	4
 _518:
 	.long	_35
-	.long	440
+	.long	443
 	.long	3
 	.align	4
 _9:
@@ -2831,7 +2831,7 @@ _521:
 	.align	4
 _520:
 	.long	_35
-	.long	440
+	.long	443
 	.long	26
 	.align	4
 _10:
@@ -2841,17 +2841,17 @@ _10:
 	.align	4
 _522:
 	.long	_35
-	.long	442
+	.long	445
 	.long	3
 	.align	4
 _524:
 	.long	_35
-	.long	445
+	.long	448
 	.long	3
 	.align	4
 _526:
 	.long	_35
-	.long	448
+	.long	451
 	.long	3
 	.align	4
 _547:
@@ -2861,17 +2861,17 @@ _547:
 	.align	4
 _528:
 	.long	_35
-	.long	450
+	.long	453
 	.long	4
 	.align	4
 _531:
 	.long	_35
-	.long	453
+	.long	456
 	.long	4
 	.align	4
 _532:
 	.long	_35
-	.long	456
+	.long	459
 	.long	4
 	.align	4
 _546:
@@ -2885,12 +2885,12 @@ _546:
 	.align	4
 _536:
 	.long	_35
-	.long	457
+	.long	460
 	.long	5
 	.align	4
 _548:
 	.long	_35
-	.long	462
+	.long	465
 	.long	3
 _570:
 	.asciz	"TranslateKey"
@@ -2908,7 +2908,7 @@ _569:
 	.align	4
 _561:
 	.long	_35
-	.long	489
+	.long	492
 	.long	3
 	.align	4
 _568:
@@ -2918,7 +2918,7 @@ _568:
 	.align	4
 _565:
 	.long	_35
-	.long	489
+	.long	492
 	.long	50
 _579:
 	.asciz	"IsKeyDown"
@@ -2934,12 +2934,12 @@ _578:
 	.align	4
 _572:
 	.long	_35
-	.long	519
+	.long	522
 	.long	3
 	.align	4
 _573:
 	.long	_35
-	.long	520
+	.long	523
 	.long	3
 	.align	4
 _576:
@@ -2949,12 +2949,12 @@ _576:
 	.align	4
 _575:
 	.long	_35
-	.long	520
+	.long	523
 	.long	15
 	.align	4
 _577:
 	.long	_35
-	.long	523
+	.long	526
 	.long	3
 _616:
 	.asciz	"GetOsVersion"
@@ -2975,12 +2975,12 @@ _615:
 	.align	4
 _580:
 	.long	_35
-	.long	603
+	.long	606
 	.long	3
 	.align	4
 _582:
 	.long	_35
-	.long	606
+	.long	609
 	.long	3
 _611:
 	.asciz	"major"
@@ -3008,22 +3008,22 @@ _610:
 	.align	4
 _584:
 	.long	_35
-	.long	608
+	.long	611
 	.long	4
 	.align	4
 _585:
 	.long	_35
-	.long	611
+	.long	614
 	.long	4
 	.align	4
 _589:
 	.long	_35
-	.long	612
+	.long	615
 	.long	4
 	.align	4
 _590:
 	.long	_35
-	.long	615
+	.long	618
 	.long	4
 	.align	4
 _609:
@@ -3033,7 +3033,7 @@ _609:
 	.align	4
 _594:
 	.long	_35
-	.long	617
+	.long	620
 	.long	6
 	.align	4
 _602:
@@ -3043,7 +3043,7 @@ _602:
 	.align	4
 _601:
 	.long	_35
-	.long	619
+	.long	622
 	.long	8
 	.align	4
 _604:
@@ -3053,7 +3053,7 @@ _604:
 	.align	4
 _603:
 	.long	_35
-	.long	621
+	.long	624
 	.long	8
 	.align	4
 _606:
@@ -3063,7 +3063,7 @@ _606:
 	.align	4
 _605:
 	.long	_35
-	.long	623
+	.long	626
 	.long	8
 	.align	4
 _608:
@@ -3073,12 +3073,12 @@ _608:
 	.align	4
 _607:
 	.long	_35
-	.long	625
+	.long	628
 	.long	8
 	.align	4
 _614:
 	.long	_35
-	.long	631
+	.long	634
 	.long	3
 _635:
 	.asciz	"GetTempDirectory"
@@ -3114,17 +3114,17 @@ _634:
 	.align	4
 _618:
 	.long	_35
-	.long	686
+	.long	689
 	.long	3
 	.align	4
 _620:
 	.long	_35
-	.long	687
+	.long	690
 	.long	3
 	.align	4
 _622:
 	.long	_35
-	.long	690
+	.long	693
 	.long	3
 	.align	4
 _632:
@@ -3134,15 +3134,15 @@ _632:
 	.align	4
 _626:
 	.long	_35
-	.long	691
+	.long	694
 	.long	4
 	.align	4
 _627:
 	.long	_35
-	.long	692
+	.long	695
 	.long	4
 	.align	4
 _633:
 	.long	_35
-	.long	696
+	.long	699
 	.long	3
