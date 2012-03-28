@@ -3211,12 +3211,12 @@ _579:
 	align	4
 _493:
 	dd	_44
-	dd	354
+	dd	357
 	dd	3
 	align	4
 _496:
 	dd	_44
-	dd	356
+	dd	359
 	dd	3
 	align	4
 _2:
@@ -3233,12 +3233,12 @@ _1:
 	align	4
 _497:
 	dd	_44
-	dd	358
+	dd	361
 	dd	3
 	align	4
 _499:
 	dd	_44
-	dd	359
+	dd	362
 	dd	3
 	align	4
 _503:
@@ -3248,12 +3248,12 @@ _503:
 	align	4
 _501:
 	dd	_44
-	dd	360
+	dd	363
 	dd	4
 	align	4
 _502:
 	dd	_44
-	dd	361
+	dd	364
 	dd	4
 	align	4
 _506:
@@ -3263,17 +3263,17 @@ _506:
 	align	4
 _505:
 	dd	_44
-	dd	363
+	dd	366
 	dd	4
 	align	4
 _507:
 	dd	_44
-	dd	367
+	dd	370
 	dd	3
 	align	4
 _512:
 	dd	_44
-	dd	368
+	dd	371
 	dd	3
 	align	4
 _3:
@@ -3284,7 +3284,7 @@ _3:
 	align	4
 _513:
 	dd	_44
-	dd	369
+	dd	372
 	dd	3
 _540:
 	db	"exs",0
@@ -3300,7 +3300,7 @@ _539:
 	align	4
 _515:
 	dd	_44
-	dd	370
+	dd	373
 	dd	4
 	align	4
 _4:
@@ -3311,12 +3311,12 @@ _4:
 	align	4
 _516:
 	dd	_44
-	dd	371
+	dd	374
 	dd	4
 	align	4
 _518:
 	dd	_44
-	dd	372
+	dd	375
 	dd	4
 	align	4
 _6:
@@ -3333,7 +3333,7 @@ _5:
 	align	4
 _519:
 	dd	_44
-	dd	373
+	dd	376
 	dd	4
 	align	4
 _8:
@@ -3350,12 +3350,12 @@ _7:
 	align	4
 _520:
 	dd	_44
-	dd	374
+	dd	377
 	dd	4
 	align	4
 _521:
 	dd	_44
-	dd	375
+	dd	378
 	dd	4
 	align	4
 _538:
@@ -3365,17 +3365,17 @@ _538:
 	align	4
 _523:
 	dd	_44
-	dd	376
+	dd	379
 	dd	5
 	align	4
 _524:
 	dd	_44
-	dd	377
+	dd	380
 	dd	5
 	align	4
 _525:
 	dd	_44
-	dd	378
+	dd	381
 	dd	5
 	align	4
 _537:
@@ -3385,12 +3385,12 @@ _537:
 	align	4
 _526:
 	dd	_44
-	dd	379
+	dd	382
 	dd	6
 	align	4
 _527:
 	dd	_44
-	dd	380
+	dd	383
 	dd	6
 	align	4
 _530:
@@ -3400,12 +3400,12 @@ _530:
 	align	4
 _529:
 	dd	_44
-	dd	380
+	dd	383
 	dd	13
 	align	4
 _531:
 	dd	_44
-	dd	381
+	dd	384
 	dd	6
 	align	4
 _535:
@@ -3415,22 +3415,22 @@ _535:
 	align	4
 _533:
 	dd	_44
-	dd	381
+	dd	384
 	dd	14
 	align	4
 _534:
 	dd	_44
-	dd	381
+	dd	384
 	dd	23
 	align	4
 _536:
 	dd	_44
-	dd	382
+	dd	385
 	dd	6
 	align	4
 _542:
 	dd	_44
-	dd	387
+	dd	390
 	dd	3
 	align	4
 _553:
@@ -3440,7 +3440,7 @@ _553:
 	align	4
 _544:
 	dd	_44
-	dd	388
+	dd	391
 	dd	4
 	align	4
 _547:
@@ -3450,7 +3450,7 @@ _547:
 	align	4
 _546:
 	dd	_44
-	dd	389
+	dd	392
 	dd	5
 	align	4
 _12:
@@ -3466,7 +3466,7 @@ _550:
 	align	4
 _549:
 	dd	_44
-	dd	391
+	dd	394
 	dd	5
 	align	4
 _13:
@@ -3477,7 +3477,7 @@ _13:
 	align	4
 _551:
 	dd	_44
-	dd	393
+	dd	396
 	dd	4
 	align	4
 _14:
@@ -3488,7 +3488,7 @@ _14:
 	align	4
 _552:
 	dd	_44
-	dd	394
+	dd	397
 	dd	4
 	align	4
 _15:
@@ -3499,17 +3499,17 @@ _15:
 	align	4
 _554:
 	dd	_44
-	dd	398
+	dd	401
 	dd	3
 	align	4
 _556:
 	dd	_44
-	dd	401
+	dd	404
 	dd	3
 	align	4
 _557:
 	dd	_44
-	dd	404
+	dd	407
 	dd	3
 	align	4
 _577:
@@ -3519,17 +3519,17 @@ _577:
 	align	4
 _559:
 	dd	_44
-	dd	406
+	dd	409
 	dd	4
 	align	4
 _562:
 	dd	_44
-	dd	409
+	dd	412
 	dd	4
 	align	4
 _563:
 	dd	_44
-	dd	412
+	dd	415
 	dd	4
 	align	4
 _576:
@@ -3539,12 +3539,12 @@ _576:
 	align	4
 _566:
 	dd	_44
-	dd	413
+	dd	416
 	dd	5
 	align	4
 _578:
 	dd	_44
-	dd	418
+	dd	421
 	dd	3
 _603:
 	db	"TranslateKey",0
@@ -3562,7 +3562,7 @@ _602:
 	align	4
 _594:
 	dd	_44
-	dd	484
+	dd	487
 	dd	3
 	align	4
 _601:
@@ -3572,7 +3572,7 @@ _601:
 	align	4
 _598:
 	dd	_44
-	dd	484
+	dd	487
 	dd	50
 _615:
 	db	"IsKeyDown",0
@@ -3588,12 +3588,12 @@ _614:
 	align	4
 _605:
 	dd	_44
-	dd	510
+	dd	513
 	dd	3
 	align	4
 _606:
 	dd	_44
-	dd	511
+	dd	514
 	dd	3
 	align	4
 _609:
@@ -3603,12 +3603,12 @@ _609:
 	align	4
 _608:
 	dd	_44
-	dd	511
+	dd	514
 	dd	15
 	align	4
 _610:
 	dd	_44
-	dd	514
+	dd	517
 	dd	3
 	align	4
 _613:
@@ -3618,7 +3618,7 @@ _613:
 	align	4
 _612:
 	dd	_44
-	dd	514
+	dd	517
 	dd	42
 _669:
 	db	"GetOsVersion",0
@@ -3639,12 +3639,12 @@ _668:
 	align	4
 _616:
 	dd	_44
-	dd	560
+	dd	563
 	dd	3
 	align	4
 _618:
 	dd	_44
-	dd	563
+	dd	566
 	dd	3
 _665:
 	db	"data",0
@@ -3662,22 +3662,22 @@ _664:
 	align	4
 _620:
 	dd	_44
-	dd	565
+	dd	568
 	dd	4
 	align	4
 _621:
 	dd	_44
-	dd	568
+	dd	571
 	dd	4
 	align	4
 _623:
 	dd	_44
-	dd	569
+	dd	572
 	dd	4
 	align	4
 _624:
 	dd	_44
-	dd	570
+	dd	573
 	dd	4
 _661:
 	db	"major",0
@@ -3699,17 +3699,17 @@ _660:
 	align	4
 _628:
 	dd	_44
-	dd	572
+	dd	575
 	dd	5
 	align	4
 _630:
 	dd	_44
-	dd	573
+	dd	576
 	dd	5
 	align	4
 _632:
 	dd	_44
-	dd	576
+	dd	579
 	dd	5
 	align	4
 _649:
@@ -3719,7 +3719,7 @@ _649:
 	align	4
 _637:
 	dd	_44
-	dd	578
+	dd	581
 	dd	7
 	align	4
 _644:
@@ -3729,7 +3729,7 @@ _644:
 	align	4
 _643:
 	dd	_44
-	dd	580
+	dd	583
 	dd	9
 	align	4
 _646:
@@ -3739,7 +3739,7 @@ _646:
 	align	4
 _645:
 	dd	_44
-	dd	582
+	dd	585
 	dd	9
 	align	4
 _648:
@@ -3749,7 +3749,7 @@ _648:
 	align	4
 _647:
 	dd	_44
-	dd	584
+	dd	587
 	dd	9
 	align	4
 _659:
@@ -3759,7 +3759,7 @@ _659:
 	align	4
 _650:
 	dd	_44
-	dd	587
+	dd	590
 	dd	7
 	align	4
 _656:
@@ -3769,7 +3769,7 @@ _656:
 	align	4
 _655:
 	dd	_44
-	dd	589
+	dd	592
 	dd	9
 	align	4
 _658:
@@ -3779,17 +3779,17 @@ _658:
 	align	4
 _657:
 	dd	_44
-	dd	591
+	dd	594
 	dd	9
 	align	4
 _663:
 	dd	_44
-	dd	595
+	dd	598
 	dd	4
 	align	4
 _667:
 	dd	_44
-	dd	599
+	dd	602
 	dd	3
 _723:
 	db	"GetTempDirectory",0
@@ -3830,17 +3830,17 @@ _722:
 	align	4
 _671:
 	dd	_44
-	dd	650
+	dd	653
 	dd	3
 	align	4
 _673:
 	dd	_44
-	dd	651
+	dd	654
 	dd	3
 	align	4
 _675:
 	dd	_44
-	dd	654
+	dd	657
 	dd	3
 _718:
 	db	"size",0
@@ -3868,32 +3868,32 @@ _717:
 	align	4
 _679:
 	dd	_44
-	dd	655
+	dd	658
 	dd	4
 	align	4
 _680:
 	dd	_44
-	dd	656
+	dd	659
 	dd	4
 	align	4
 _685:
 	dd	_44
-	dd	659
+	dd	662
 	dd	4
 	align	4
 _687:
 	dd	_44
-	dd	660
+	dd	663
 	dd	4
 	align	4
 _689:
 	dd	_44
-	dd	663
+	dd	666
 	dd	4
 	align	4
 _693:
 	dd	_44
-	dd	666
+	dd	669
 	dd	4
 	align	4
 _702:
@@ -3903,22 +3903,22 @@ _702:
 	align	4
 _695:
 	dd	_44
-	dd	668
+	dd	671
 	dd	5
 	align	4
 _696:
 	dd	_44
-	dd	669
+	dd	672
 	dd	5
 	align	4
 _699:
 	dd	_44
-	dd	672
+	dd	675
 	dd	5
 	align	4
 _703:
 	dd	_44
-	dd	676
+	dd	679
 	dd	4
 	align	4
 _716:
@@ -3928,7 +3928,7 @@ _716:
 	align	4
 _705:
 	dd	_44
-	dd	677
+	dd	680
 	dd	5
 	align	4
 _715:
@@ -3938,10 +3938,10 @@ _715:
 	align	4
 _708:
 	dd	_44
-	dd	678
+	dd	681
 	dd	6
 	align	4
 _721:
 	dd	_44
-	dd	684
+	dd	687
 	dd	3
