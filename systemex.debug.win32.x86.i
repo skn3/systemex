@@ -1,8 +1,7 @@
 ModuleInfo "History: 1.00"
 ModuleInfo "History: Initial Release To Public"
 import brl.blitz
-import brl.keycodes
-import brl.bank
+import brl.system
 WINDOWS_UNKNOWN%=0
 WINDOWS_2000%=1
 WINDOWS_XP%=2
@@ -18,3 +17,4 @@ TranslateKey%(Code%)="skn3_systemex_TranslateKey"
 IsKeyDown%(Code%)="skn3_systemex_IsKeyDown"
 GetOsVersion%()="skn3_systemex_GetOsVersion"
 GetTempDirectory$(resetCache%=0)="skn3_systemex_GetTempDirectory"
+KeepSystemAlive%()="skn3_systemex_KeepSystemAlive"

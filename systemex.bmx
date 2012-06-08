@@ -13,6 +13,7 @@ SuperStrict
 
 ?Win32
 'imports
+Import brl.system
 Import brl.keycodes
 Import brl.bank
 Import "systemex.win.c"
@@ -659,17 +660,20 @@ Function GetTempDirectory:String(resetCache:Int=False)
 			cache = ""
 			
 			'create buffer to recieve path
-			Local size:Int = 2048
+			Local charSize:Int = 2
+			Local chars:Int = 2048
+			Local size:Int = chars*charSize
 			Local bank:TBank = CreateBank(size)
 			
 			'attempt to recieve the path
-			Local realSize:Int = skn3_getTempPath(size,bank.Buf())
+			Local realSize:Int = skn3_getTempPath(chars,bank.Buf())
 			
 			'check if the buffer was too small
-			If realSize > size-2
+			If realSize > size-charSize
 				'resize bank
-				size = realSize+2
-				bank.Resize(size*2)
+				size = realSize+charSize
+				chars = realSize/charSize
+				bank.Resize(size*charSize)
 				
 				'call the buffer again
 				realSize = skn3_getTempPath(size,bank.Buf())
@@ -698,4 +702,20 @@ Function GetTempDirectory:String(resetCache:Int=False)
 		'return cache
 		Return cache
 	?
+End Function
+
+Rem
+bbdoc: Keep the system alive. <b>[Win Mac]</b>
+about:
+<b>Supported Platforms</b>
+<ul>
+	<li>Windows</li>
+	<li>Mac</li>
+</ul>
+<b>Info</b>
+<p>this will use the built in system driver to give some processing time back to the os. This is useful if you are performing a long operation and don't want your application to appear as if it has crashed.</p>
+End Rem
+Function KeepSystemAlive()
+	' --- shortcut for keeping the system alive ---
+	If Driver Driver.Poll()
 End Function
