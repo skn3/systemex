@@ -13,5 +13,6 @@ void skn3_getOsVersionInfo(unsigned *major, unsigned *minor, unsigned *bugFix);
 int skn3_isKeyDown(CGKeyCode code);
 BBString *skn3_requestFile( BBString *title,BBString *exts,int save,int multiple,BBString *file,BBString *dir);
 BBString *skn3_getTemporaryDirectory();
+BBArray * skn3_getMousePosition();
 
 #endif

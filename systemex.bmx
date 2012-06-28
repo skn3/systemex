@@ -5,6 +5,8 @@ about:
 End Rem
 Module skn3.systemex
 
+ModuleInfo "History: 1.01"
+ModuleInfo "History: Added GetMousePosition() function"
 ModuleInfo "History: 1.00"
 ModuleInfo "History: Initial Release To Public"
 
@@ -175,7 +177,8 @@ End Extern
 Extern "win32"
 	Function skn3_getAsyncKeyState:Int(character:Int) = "GetAsyncKeyState@4"
 	Function skn3_getVersionEx(versioninfo:Byte Ptr) = "GetVersionExW@4"
-	Function skn3_getTempPath(length:Int,buffer:Byte Ptr) = "GetTempPathW@8"
+	Function skn3_getTempPath(Length:Int,buffer:Byte Ptr) = "GetTempPathW@8"
+	Function skn3_getCursorPos(point:Byte ptr) = "GetCursorPos@4"
 EndExtern
 	
 ?MacOs
@@ -336,6 +339,7 @@ Extern
 	Function skn3_requestFile:String(text:String,exts:String,save:Int,multiple:Int,file:String,dir:String)
 	Function skn3_getOsVersionInfo(major:Int Ptr,minor:Int Ptr,bugFix:Int Ptr)
 	Function skn3_getTemporaryDirectory:String()
+	Function skn3_getMousePosition:Int[]()
 End Extern
 ?
 
@@ -718,4 +722,26 @@ End Rem
 Function KeepSystemAlive()
 	' --- shortcut for keeping the system alive ---
 	If Driver Driver.Poll()
+End Function
+
+Rem
+bbdoc: Get the mouse position. <b>[Win Mac]</b>
+about:
+<b>Supported Platforms</b>
+<ul>
+	<li>Windows</li>
+	<li>Mac</li>
+</ul>
+<b>Info</b>
+<p>Get the mouse position by using the OS directly.</p>
+End Rem
+Function GetMousePosition:Int[]()
+	' --- get mouse position from os ---
+	?Win32
+		Local point:Int[2]
+		skn3_getCursorPos(point)
+		Return point
+	?MacOs
+		Return skn3_getMousePosition()
+	?
 End Function

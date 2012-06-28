@@ -100,3 +100,12 @@ BBString *skn3_getTemporaryDirectory() {
 	if (tempDir == nil) { tempDir = @"/tmp"; }
 	return stringFromNSString(tempDir);
 }
+
+BBArray * skn3_getMousePosition() {
+	BBArray *result = bbArrayNew1D("i",2);
+	int *p = (int*)BBARRAYDATA(result,1);
+	NSPoint mouseLoc;
+	mouseLoc = [NSEvent mouseLocation];
+	p[0] = mouseLoc.x;
+	p[1] = mouseLoc.y;
+}

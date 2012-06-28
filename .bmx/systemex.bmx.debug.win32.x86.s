@@ -1,5 +1,6 @@
 	format	MS COFF
 	extrn	_GetAsyncKeyState@4
+	extrn	_GetCursorPos@4
 	extrn	_GetTempPathW@8
 	extrn	_GetVersionExW@4
 	extrn	___bb_blitz_blitz
@@ -30,6 +31,7 @@
 	extrn	_brl_system_Driver
 	extrn	_skn3_requestFile
 	public	___bb_systemex_systemex
+	public	_skn3_systemex_GetMousePosition
 	public	_skn3_systemex_GetOsVersion
 	public	_skn3_systemex_GetTempDirectory
 	public	_skn3_systemex_IsKeyDown
@@ -41,1411 +43,1411 @@ ___bb_systemex_systemex:
 	push	ebp
 	mov	ebp,esp
 	push	ebx
-	cmp	dword [_493],0
-	je	_494
+	cmp	dword [_495],0
+	je	_496
 	mov	eax,0
 	pop	ebx
 	mov	esp,ebp
 	pop	ebp
 	ret
-_494:
-	mov	dword [_493],1
+_496:
+	mov	dword [_495],1
 	push	ebp
-	push	_476
+	push	_478
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
 	call	___bb_blitz_blitz
 	call	___bb_system_system
-	push	_45
+	push	_47
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
-	mov	eax,dword [_50]
+	mov	eax,dword [_52]
 	and	eax,1
 	cmp	eax,0
-	jne	_51
+	jne	_53
 	push	256
-	push	_47
+	push	_49
 	call	_bbArrayNew1D
 	add	esp,8
 	inc	dword [eax+4]
-	mov	dword [_48],eax
-	or	dword [_50],1
-_51:
-	push	_52
+	mov	dword [_50],eax
+	or	dword [_52],1
+_53:
+	push	_54
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,1
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_54
+	jb	_56
 	call	_brl_blitz_ArrayBoundsError
-_54:
-	mov	eax,dword [_48]
+_56:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],1
-	push	_56
+	push	_58
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,2
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_58
+	jb	_60
 	call	_brl_blitz_ArrayBoundsError
-_58:
-	mov	eax,dword [_48]
+_60:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],2
-	push	_60
+	push	_62
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,3
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_62
+	jb	_64
 	call	_brl_blitz_ArrayBoundsError
-_62:
-	mov	eax,dword [_48]
+_64:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],1
-	push	_64
+	push	_66
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,8
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_66
+	jb	_68
 	call	_brl_blitz_ArrayBoundsError
-_66:
-	mov	eax,dword [_48]
+_68:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],1
-	push	_68
+	push	_70
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,9
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_70
+	jb	_72
 	call	_brl_blitz_ArrayBoundsError
-_70:
-	mov	eax,dword [_48]
+_72:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],9
-	push	_72
+	push	_74
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,12
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_74
+	jb	_76
 	call	_brl_blitz_ArrayBoundsError
-_74:
-	mov	eax,dword [_48]
+_76:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],12
-	push	_76
+	push	_78
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,13
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_78
+	jb	_80
 	call	_brl_blitz_ArrayBoundsError
-_78:
-	mov	eax,dword [_48]
+_80:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],13
-	push	_80
+	push	_82
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,13
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_82
+	jb	_84
 	call	_brl_blitz_ArrayBoundsError
-_82:
-	mov	eax,dword [_48]
+_84:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],156
-	push	_84
+	push	_86
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,27
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_86
+	jb	_88
 	call	_brl_blitz_ArrayBoundsError
-_86:
-	mov	eax,dword [_48]
+_88:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],27
-	push	_88
+	push	_90
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,32
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_90
+	jb	_92
 	call	_brl_blitz_ArrayBoundsError
-_90:
-	mov	eax,dword [_48]
+_92:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],32
-	push	_92
+	push	_94
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,33
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_94
+	jb	_96
 	call	_brl_blitz_ArrayBoundsError
-_94:
-	mov	eax,dword [_48]
+_96:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],33
-	push	_96
+	push	_98
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,34
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_98
+	jb	_100
 	call	_brl_blitz_ArrayBoundsError
-_98:
-	mov	eax,dword [_48]
+_100:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],34
-	push	_100
+	push	_102
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,35
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_102
+	jb	_104
 	call	_brl_blitz_ArrayBoundsError
-_102:
-	mov	eax,dword [_48]
+_104:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],35
-	push	_104
+	push	_106
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,36
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_106
+	jb	_108
 	call	_brl_blitz_ArrayBoundsError
-_106:
-	mov	eax,dword [_48]
+_108:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],36
-	push	_108
+	push	_110
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,37
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_110
+	jb	_112
 	call	_brl_blitz_ArrayBoundsError
-_110:
-	mov	eax,dword [_48]
+_112:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],37
-	push	_112
+	push	_114
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,38
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_114
+	jb	_116
 	call	_brl_blitz_ArrayBoundsError
-_114:
-	mov	eax,dword [_48]
+_116:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],38
-	push	_116
+	push	_118
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,39
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_118
+	jb	_120
 	call	_brl_blitz_ArrayBoundsError
-_118:
-	mov	eax,dword [_48]
+_120:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],39
-	push	_120
+	push	_122
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,40
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_122
+	jb	_124
 	call	_brl_blitz_ArrayBoundsError
-_122:
-	mov	eax,dword [_48]
+_124:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],40
-	push	_124
+	push	_126
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,41
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_126
+	jb	_128
 	call	_brl_blitz_ArrayBoundsError
-_126:
-	mov	eax,dword [_48]
+_128:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],41
-	push	_128
+	push	_130
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,42
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_130
+	jb	_132
 	call	_brl_blitz_ArrayBoundsError
-_130:
-	mov	eax,dword [_48]
+_132:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],42
-	push	_132
+	push	_134
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,43
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_134
+	jb	_136
 	call	_brl_blitz_ArrayBoundsError
-_134:
-	mov	eax,dword [_48]
+_136:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],43
-	push	_136
+	push	_138
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,44
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_138
+	jb	_140
 	call	_brl_blitz_ArrayBoundsError
-_138:
-	mov	eax,dword [_48]
+_140:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],44
-	push	_140
+	push	_142
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,45
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_142
+	jb	_144
 	call	_brl_blitz_ArrayBoundsError
-_142:
-	mov	eax,dword [_48]
+_144:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],45
-	push	_144
+	push	_146
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,46
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_146
+	jb	_148
 	call	_brl_blitz_ArrayBoundsError
-_146:
-	mov	eax,dword [_48]
+_148:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],46
-	push	_148
+	push	_150
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,48
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_150
+	jb	_152
 	call	_brl_blitz_ArrayBoundsError
-_150:
-	mov	eax,dword [_48]
+_152:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],48
-	push	_152
+	push	_154
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,49
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_154
+	jb	_156
 	call	_brl_blitz_ArrayBoundsError
-_154:
-	mov	eax,dword [_48]
+_156:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],49
-	push	_156
+	push	_158
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,50
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_158
+	jb	_160
 	call	_brl_blitz_ArrayBoundsError
-_158:
-	mov	eax,dword [_48]
+_160:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],50
-	push	_160
+	push	_162
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,51
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_162
+	jb	_164
 	call	_brl_blitz_ArrayBoundsError
-_162:
-	mov	eax,dword [_48]
+_164:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],51
-	push	_164
+	push	_166
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,52
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_166
+	jb	_168
 	call	_brl_blitz_ArrayBoundsError
-_166:
-	mov	eax,dword [_48]
+_168:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],52
-	push	_168
+	push	_170
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,53
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_170
+	jb	_172
 	call	_brl_blitz_ArrayBoundsError
-_170:
-	mov	eax,dword [_48]
+_172:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],53
-	push	_172
+	push	_174
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,54
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_174
+	jb	_176
 	call	_brl_blitz_ArrayBoundsError
-_174:
-	mov	eax,dword [_48]
+_176:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],54
-	push	_176
+	push	_178
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,55
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_178
+	jb	_180
 	call	_brl_blitz_ArrayBoundsError
-_178:
-	mov	eax,dword [_48]
+_180:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],55
-	push	_180
+	push	_182
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,56
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_182
+	jb	_184
 	call	_brl_blitz_ArrayBoundsError
-_182:
-	mov	eax,dword [_48]
+_184:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],56
-	push	_184
+	push	_186
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,57
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_186
+	jb	_188
 	call	_brl_blitz_ArrayBoundsError
-_186:
-	mov	eax,dword [_48]
+_188:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],57
-	push	_188
+	push	_190
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,65
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_190
+	jb	_192
 	call	_brl_blitz_ArrayBoundsError
-_190:
-	mov	eax,dword [_48]
+_192:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],65
-	push	_192
+	push	_194
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,66
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_194
+	jb	_196
 	call	_brl_blitz_ArrayBoundsError
-_194:
-	mov	eax,dword [_48]
+_196:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],66
-	push	_196
+	push	_198
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,67
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_198
+	jb	_200
 	call	_brl_blitz_ArrayBoundsError
-_198:
-	mov	eax,dword [_48]
+_200:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],67
-	push	_200
+	push	_202
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,68
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_202
+	jb	_204
 	call	_brl_blitz_ArrayBoundsError
-_202:
-	mov	eax,dword [_48]
+_204:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],68
-	push	_204
+	push	_206
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,69
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_206
+	jb	_208
 	call	_brl_blitz_ArrayBoundsError
-_206:
-	mov	eax,dword [_48]
+_208:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],69
-	push	_208
+	push	_210
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,70
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_210
+	jb	_212
 	call	_brl_blitz_ArrayBoundsError
-_210:
-	mov	eax,dword [_48]
+_212:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],70
-	push	_212
+	push	_214
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,71
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_214
+	jb	_216
 	call	_brl_blitz_ArrayBoundsError
-_214:
-	mov	eax,dword [_48]
+_216:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],71
-	push	_216
+	push	_218
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,72
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_218
+	jb	_220
 	call	_brl_blitz_ArrayBoundsError
-_218:
-	mov	eax,dword [_48]
+_220:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],72
-	push	_220
+	push	_222
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,73
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_222
+	jb	_224
 	call	_brl_blitz_ArrayBoundsError
-_222:
-	mov	eax,dword [_48]
+_224:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],73
-	push	_224
+	push	_226
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,74
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_226
+	jb	_228
 	call	_brl_blitz_ArrayBoundsError
-_226:
-	mov	eax,dword [_48]
+_228:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],74
-	push	_228
+	push	_230
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,75
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_230
+	jb	_232
 	call	_brl_blitz_ArrayBoundsError
-_230:
-	mov	eax,dword [_48]
+_232:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],75
-	push	_232
+	push	_234
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,76
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_234
+	jb	_236
 	call	_brl_blitz_ArrayBoundsError
-_234:
-	mov	eax,dword [_48]
+_236:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],76
-	push	_236
+	push	_238
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,77
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_238
+	jb	_240
 	call	_brl_blitz_ArrayBoundsError
-_238:
-	mov	eax,dword [_48]
+_240:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],77
-	push	_240
+	push	_242
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,78
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_242
+	jb	_244
 	call	_brl_blitz_ArrayBoundsError
-_242:
-	mov	eax,dword [_48]
+_244:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],78
-	push	_244
+	push	_246
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,79
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_246
+	jb	_248
 	call	_brl_blitz_ArrayBoundsError
-_246:
-	mov	eax,dword [_48]
+_248:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],79
-	push	_248
+	push	_250
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,80
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_250
+	jb	_252
 	call	_brl_blitz_ArrayBoundsError
-_250:
-	mov	eax,dword [_48]
+_252:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],80
-	push	_252
+	push	_254
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,81
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_254
+	jb	_256
 	call	_brl_blitz_ArrayBoundsError
-_254:
-	mov	eax,dword [_48]
+_256:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],81
-	push	_256
+	push	_258
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,82
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_258
+	jb	_260
 	call	_brl_blitz_ArrayBoundsError
-_258:
-	mov	eax,dword [_48]
+_260:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],82
-	push	_260
+	push	_262
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,83
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_262
+	jb	_264
 	call	_brl_blitz_ArrayBoundsError
-_262:
-	mov	eax,dword [_48]
+_264:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],83
-	push	_264
+	push	_266
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,84
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_266
+	jb	_268
 	call	_brl_blitz_ArrayBoundsError
-_266:
-	mov	eax,dword [_48]
+_268:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],84
-	push	_268
+	push	_270
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,85
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_270
+	jb	_272
 	call	_brl_blitz_ArrayBoundsError
-_270:
-	mov	eax,dword [_48]
+_272:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],85
-	push	_272
+	push	_274
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,86
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_274
+	jb	_276
 	call	_brl_blitz_ArrayBoundsError
-_274:
-	mov	eax,dword [_48]
+_276:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],86
-	push	_276
+	push	_278
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,87
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_278
+	jb	_280
 	call	_brl_blitz_ArrayBoundsError
-_278:
-	mov	eax,dword [_48]
+_280:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],87
-	push	_280
+	push	_282
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,88
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_282
+	jb	_284
 	call	_brl_blitz_ArrayBoundsError
-_282:
-	mov	eax,dword [_48]
+_284:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],88
-	push	_284
+	push	_286
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,89
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_286
+	jb	_288
 	call	_brl_blitz_ArrayBoundsError
-_286:
-	mov	eax,dword [_48]
+_288:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],89
-	push	_288
+	push	_290
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,90
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_290
+	jb	_292
 	call	_brl_blitz_ArrayBoundsError
-_290:
-	mov	eax,dword [_48]
+_292:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],90
-	push	_292
+	push	_294
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,96
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_294
+	jb	_296
 	call	_brl_blitz_ArrayBoundsError
-_294:
-	mov	eax,dword [_48]
+_296:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],96
-	push	_296
+	push	_298
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,97
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_298
+	jb	_300
 	call	_brl_blitz_ArrayBoundsError
-_298:
-	mov	eax,dword [_48]
+_300:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],97
-	push	_300
+	push	_302
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,98
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_302
+	jb	_304
 	call	_brl_blitz_ArrayBoundsError
-_302:
-	mov	eax,dword [_48]
+_304:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],98
-	push	_304
+	push	_306
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,99
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_306
+	jb	_308
 	call	_brl_blitz_ArrayBoundsError
-_306:
-	mov	eax,dword [_48]
+_308:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],99
-	push	_308
+	push	_310
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,100
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_310
+	jb	_312
 	call	_brl_blitz_ArrayBoundsError
-_310:
-	mov	eax,dword [_48]
+_312:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],100
-	push	_312
+	push	_314
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,101
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_314
+	jb	_316
 	call	_brl_blitz_ArrayBoundsError
-_314:
-	mov	eax,dword [_48]
+_316:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],101
-	push	_316
+	push	_318
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,102
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_318
+	jb	_320
 	call	_brl_blitz_ArrayBoundsError
-_318:
-	mov	eax,dword [_48]
+_320:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],102
-	push	_320
+	push	_322
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,103
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_322
+	jb	_324
 	call	_brl_blitz_ArrayBoundsError
-_322:
-	mov	eax,dword [_48]
+_324:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],103
-	push	_324
+	push	_326
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,104
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_326
+	jb	_328
 	call	_brl_blitz_ArrayBoundsError
-_326:
-	mov	eax,dword [_48]
+_328:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],104
-	push	_328
+	push	_330
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,105
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_330
+	jb	_332
 	call	_brl_blitz_ArrayBoundsError
-_330:
-	mov	eax,dword [_48]
+_332:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],105
-	push	_332
+	push	_334
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,106
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_334
+	jb	_336
 	call	_brl_blitz_ArrayBoundsError
-_334:
-	mov	eax,dword [_48]
+_336:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],106
-	push	_336
+	push	_338
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,107
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_338
+	jb	_340
 	call	_brl_blitz_ArrayBoundsError
-_338:
-	mov	eax,dword [_48]
+_340:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],107
-	push	_340
+	push	_342
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,109
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_342
+	jb	_344
 	call	_brl_blitz_ArrayBoundsError
-_342:
-	mov	eax,dword [_48]
+_344:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],109
-	push	_344
+	push	_346
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,110
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_346
+	jb	_348
 	call	_brl_blitz_ArrayBoundsError
-_346:
-	mov	eax,dword [_48]
+_348:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],110
-	push	_348
+	push	_350
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,111
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_350
+	jb	_352
 	call	_brl_blitz_ArrayBoundsError
-_350:
-	mov	eax,dword [_48]
+_352:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],111
-	push	_352
+	push	_354
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,112
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_354
+	jb	_356
 	call	_brl_blitz_ArrayBoundsError
-_354:
-	mov	eax,dword [_48]
+_356:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],112
-	push	_356
+	push	_358
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,113
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_358
+	jb	_360
 	call	_brl_blitz_ArrayBoundsError
-_358:
-	mov	eax,dword [_48]
+_360:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],113
-	push	_360
+	push	_362
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,114
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_362
+	jb	_364
 	call	_brl_blitz_ArrayBoundsError
-_362:
-	mov	eax,dword [_48]
+_364:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],114
-	push	_364
+	push	_366
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,115
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_366
+	jb	_368
 	call	_brl_blitz_ArrayBoundsError
-_366:
-	mov	eax,dword [_48]
+_368:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],115
-	push	_368
+	push	_370
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,116
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_370
+	jb	_372
 	call	_brl_blitz_ArrayBoundsError
-_370:
-	mov	eax,dword [_48]
+_372:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],116
-	push	_372
+	push	_374
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,117
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_374
+	jb	_376
 	call	_brl_blitz_ArrayBoundsError
-_374:
-	mov	eax,dword [_48]
+_376:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],117
-	push	_376
+	push	_378
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,118
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_378
+	jb	_380
 	call	_brl_blitz_ArrayBoundsError
-_378:
-	mov	eax,dword [_48]
+_380:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],118
-	push	_380
+	push	_382
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,119
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_382
+	jb	_384
 	call	_brl_blitz_ArrayBoundsError
-_382:
-	mov	eax,dword [_48]
+_384:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],119
-	push	_384
+	push	_386
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,120
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_386
+	jb	_388
 	call	_brl_blitz_ArrayBoundsError
-_386:
-	mov	eax,dword [_48]
+_388:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],120
-	push	_388
+	push	_390
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,121
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_390
+	jb	_392
 	call	_brl_blitz_ArrayBoundsError
-_390:
-	mov	eax,dword [_48]
+_392:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],121
-	push	_392
+	push	_394
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,122
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_394
+	jb	_396
 	call	_brl_blitz_ArrayBoundsError
-_394:
-	mov	eax,dword [_48]
+_396:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],122
-	push	_396
+	push	_398
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,123
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_398
+	jb	_400
 	call	_brl_blitz_ArrayBoundsError
-_398:
-	mov	eax,dword [_48]
+_400:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],123
-	push	_400
+	push	_402
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,192
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_402
+	jb	_404
 	call	_brl_blitz_ArrayBoundsError
-_402:
-	mov	eax,dword [_48]
+_404:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],192
-	push	_404
+	push	_406
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,189
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_406
+	jb	_408
 	call	_brl_blitz_ArrayBoundsError
-_406:
-	mov	eax,dword [_48]
+_408:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],189
-	push	_408
+	push	_410
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,187
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_410
+	jb	_412
 	call	_brl_blitz_ArrayBoundsError
-_410:
-	mov	eax,dword [_48]
+_412:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],187
-	push	_412
+	push	_414
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,219
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_414
+	jb	_416
 	call	_brl_blitz_ArrayBoundsError
-_414:
-	mov	eax,dword [_48]
+_416:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],57
-	push	_416
+	push	_418
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,221
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_418
+	jb	_420
 	call	_brl_blitz_ArrayBoundsError
-_418:
-	mov	eax,dword [_48]
+_420:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],58
-	push	_420
+	push	_422
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,226
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_422
+	jb	_424
 	call	_brl_blitz_ArrayBoundsError
-_422:
-	mov	eax,dword [_48]
+_424:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],220
-	push	_424
+	push	_426
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,186
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_426
+	jb	_428
 	call	_brl_blitz_ArrayBoundsError
-_426:
-	mov	eax,dword [_48]
+_428:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],186
-	push	_428
+	push	_430
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,222
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_430
+	jb	_432
 	call	_brl_blitz_ArrayBoundsError
-_430:
-	mov	eax,dword [_48]
+_432:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],222
-	push	_432
+	push	_434
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,188
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_434
+	jb	_436
 	call	_brl_blitz_ArrayBoundsError
-_434:
-	mov	eax,dword [_48]
+_436:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],188
-	push	_436
+	push	_438
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,190
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_438
+	jb	_440
 	call	_brl_blitz_ArrayBoundsError
-_438:
-	mov	eax,dword [_48]
+_440:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],190
-	push	_440
+	push	_442
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,191
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_442
+	jb	_444
 	call	_brl_blitz_ArrayBoundsError
-_442:
-	mov	eax,dword [_48]
+_444:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],191
-	push	_444
+	push	_446
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,160
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_446
+	jb	_448
 	call	_brl_blitz_ArrayBoundsError
-_446:
-	mov	eax,dword [_48]
+_448:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],160
-	push	_448
+	push	_450
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,161
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_450
+	jb	_452
 	call	_brl_blitz_ArrayBoundsError
-_450:
-	mov	eax,dword [_48]
+_452:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],161
-	push	_452
+	push	_454
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,162
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_454
+	jb	_456
 	call	_brl_blitz_ArrayBoundsError
-_454:
-	mov	eax,dword [_48]
+_456:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],162
-	push	_456
+	push	_458
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,163
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_458
+	jb	_460
 	call	_brl_blitz_ArrayBoundsError
-_458:
-	mov	eax,dword [_48]
+_460:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],163
-	push	_460
+	push	_462
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,164
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_462
+	jb	_464
 	call	_brl_blitz_ArrayBoundsError
-_462:
-	mov	eax,dword [_48]
+_464:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],164
-	push	_464
+	push	_466
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,165
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_466
+	jb	_468
 	call	_brl_blitz_ArrayBoundsError
-_466:
-	mov	eax,dword [_48]
+_468:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],165
-	push	_468
+	push	_470
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,91
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_470
+	jb	_472
 	call	_brl_blitz_ArrayBoundsError
-_470:
-	mov	eax,dword [_48]
+_472:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],91
-	push	_472
+	push	_474
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,92
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_474
+	jb	_476
 	call	_brl_blitz_ArrayBoundsError
-_474:
-	mov	eax,dword [_48]
+_476:
+	mov	eax,dword [_50]
 	shl	ebx,2
 	add	eax,ebx
 	mov	dword [eax+24],92
@@ -1486,15 +1488,15 @@ _skn3_systemex_RequestFiles:
 	mov	dword [ebp-52],_bbEmptyArray
 	mov	eax,ebp
 	push	eax
-	push	_581
+	push	_583
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_495
+	push	_497
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	dword [ebp-24],_bbEmptyString
 	mov	dword [ebp-28],_bbEmptyString
-	push	_498
+	push	_500
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	_3
@@ -1503,7 +1505,7 @@ _skn3_systemex_RequestFiles:
 	call	_bbStringReplace
 	add	esp,12
 	mov	dword [ebp-20],eax
-	push	_499
+	push	_501
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	0
@@ -1512,17 +1514,17 @@ _skn3_systemex_RequestFiles:
 	call	_bbStringFindLast
 	add	esp,12
 	mov	dword [ebp-32],eax
-	push	_501
+	push	_503
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	cmp	dword [ebp-32],-1
-	je	_502
+	je	_504
 	mov	eax,ebp
 	push	eax
-	push	_505
+	push	_507
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_503
+	push	_505
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-32]
@@ -1531,7 +1533,7 @@ _skn3_systemex_RequestFiles:
 	call	_bbStringSlice
 	add	esp,12
 	mov	dword [ebp-28],eax
-	push	_504
+	push	_506
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	eax,dword [ebp-20]
@@ -1544,28 +1546,28 @@ _skn3_systemex_RequestFiles:
 	add	esp,12
 	mov	dword [ebp-24],eax
 	call	dword [_bbOnDebugLeaveScope]
-	jmp	_506
-_502:
+	jmp	_508
+_504:
 	mov	eax,ebp
 	push	eax
-	push	_508
+	push	_510
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_507
+	push	_509
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	eax,dword [ebp-20]
 	mov	dword [ebp-24],eax
 	call	dword [_bbOnDebugLeaveScope]
-_506:
-	push	_509
+_508:
+	push	_511
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	dword [ebp-36],_bbEmptyString
 	mov	dword [ebp-40],0
 	mov	dword [ebp-44],0
 	mov	dword [ebp-48],0
-	push	_514
+	push	_516
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	0
@@ -1574,17 +1576,17 @@ _506:
 	call	_bbStringFind
 	add	esp,12
 	mov	dword [ebp-44],eax
-	push	_515
+	push	_517
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	cmp	dword [ebp-44],-1
-	jle	_516
+	jle	_518
 	mov	eax,ebp
 	push	eax
-	push	_541
+	push	_543
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_517
+	push	_519
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	_5
@@ -1607,14 +1609,14 @@ _506:
 	call	_bbStringConcat
 	add	esp,8
 	mov	dword [ebp-36],eax
-	push	_518
+	push	_520
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-8]
 	call	_bbStringToLower
 	add	esp,4
 	mov	dword [ebp-56],eax
-	push	_520
+	push	_522
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	_7
@@ -1623,7 +1625,7 @@ _506:
 	call	_bbStringReplace
 	add	esp,12
 	mov	dword [ebp-56],eax
-	push	_521
+	push	_523
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	_9
@@ -1632,7 +1634,7 @@ _506:
 	call	_bbStringReplace
 	add	esp,12
 	mov	dword [ebp-56],eax
-	push	_522
+	push	_524
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	0
@@ -1641,35 +1643,35 @@ _506:
 	call	_bbStringFind
 	add	esp,12
 	mov	dword [ebp-44],eax
-	push	_523
-	call	dword [_bbOnDebugEnterStm]
-	add	esp,4
-	cmp	dword [ebp-44],-1
-	jle	_524
-	mov	eax,ebp
-	push	eax
-	push	_540
-	call	dword [_bbOnDebugEnterScope]
-	add	esp,8
 	push	_525
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
+	cmp	dword [ebp-44],-1
+	jle	_526
+	mov	eax,ebp
+	push	eax
+	push	_542
+	call	dword [_bbOnDebugEnterScope]
+	add	esp,8
+	push	_527
+	call	dword [_bbOnDebugEnterStm]
+	add	esp,4
 	mov	dword [ebp-48],-1
-	push	_526
+	push	_528
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	dword [ebp-40],1
-	push	_527
+	push	_529
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	jmp	_10
 _12:
 	mov	eax,ebp
 	push	eax
-	push	_539
+	push	_541
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_528
+	push	_530
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	eax,dword [ebp-48]
@@ -1680,46 +1682,46 @@ _12:
 	call	_bbStringFind
 	add	esp,12
 	mov	dword [ebp-48],eax
-	push	_529
+	push	_531
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	eax,dword [ebp-44]
 	cmp	dword [ebp-48],eax
-	jle	_530
+	jle	_532
 	mov	eax,ebp
 	push	eax
-	push	_532
+	push	_534
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_531
-	call	dword [_bbOnDebugEnterStm]
-	add	esp,4
-	call	dword [_bbOnDebugLeaveScope]
-	call	dword [_bbOnDebugLeaveScope]
-	jmp	_11
-_530:
 	push	_533
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
-	cmp	dword [ebp-48],-1
-	jne	_534
-	mov	eax,ebp
-	push	eax
-	push	_537
-	call	dword [_bbOnDebugEnterScope]
-	add	esp,8
+	call	dword [_bbOnDebugLeaveScope]
+	call	dword [_bbOnDebugLeaveScope]
+	jmp	_11
+_532:
 	push	_535
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
+	cmp	dword [ebp-48],-1
+	jne	_536
+	mov	eax,ebp
+	push	eax
+	push	_539
+	call	dword [_bbOnDebugEnterScope]
+	add	esp,8
+	push	_537
+	call	dword [_bbOnDebugEnterStm]
+	add	esp,4
 	mov	dword [ebp-40],0
-	push	_536
+	push	_538
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	call	dword [_bbOnDebugLeaveScope]
 	call	dword [_bbOnDebugLeaveScope]
 	jmp	_11
-_534:
-	push	_538
+_536:
+	push	_540
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	add	dword [ebp-40],1
@@ -1730,21 +1732,21 @@ _10:
 	jne	_12
 _11:
 	call	dword [_bbOnDebugLeaveScope]
-_524:
+_526:
 	call	dword [_bbOnDebugLeaveScope]
-_516:
-	push	_544
+_518:
+	push	_546
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	eax,dword [ebp-8]
 	cmp	dword [eax+8],0
-	je	_545
+	je	_547
 	mov	eax,ebp
 	push	eax
-	push	_555
+	push	_557
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_546
+	push	_548
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	0
@@ -1753,13 +1755,13 @@ _516:
 	call	_bbStringFind
 	add	esp,12
 	cmp	eax,-1
-	jne	_547
+	jne	_549
 	mov	eax,ebp
 	push	eax
-	push	_549
+	push	_551
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_548
+	push	_550
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-8]
@@ -1768,14 +1770,14 @@ _516:
 	add	esp,8
 	mov	dword [ebp-8],eax
 	call	dword [_bbOnDebugLeaveScope]
-	jmp	_550
-_547:
+	jmp	_552
+_549:
 	mov	eax,ebp
 	push	eax
-	push	_552
+	push	_554
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_551
+	push	_553
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	_14
@@ -1785,8 +1787,8 @@ _547:
 	add	esp,12
 	mov	dword [ebp-8],eax
 	call	dword [_bbOnDebugLeaveScope]
-_550:
-	push	_553
+_552:
+	push	_555
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	_15
@@ -1795,7 +1797,7 @@ _550:
 	call	_bbStringReplace
 	add	esp,12
 	mov	dword [ebp-8],eax
-	push	_554
+	push	_556
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	_15
@@ -1809,8 +1811,8 @@ _550:
 	add	esp,8
 	mov	dword [ebp-8],eax
 	call	dword [_bbOnDebugLeaveScope]
-_545:
-	push	_556
+_547:
+	push	_558
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	_8
@@ -1827,7 +1829,7 @@ _545:
 	call	_bbStringSplit
 	add	esp,8
 	mov	dword [ebp-52],eax
-	push	_558
+	push	_560
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	eax,dword [ebp-52]
@@ -1836,66 +1838,66 @@ _545:
 	push	eax
 	push	0
 	push	dword [ebp-52]
-	push	_543
+	push	_545
 	call	_bbArraySlice
 	add	esp,16
 	mov	dword [ebp-52],eax
-	push	_559
+	push	_561
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	eax,dword [ebp-52]
 	cmp	dword [eax+20],1
-	jle	_560
+	jle	_562
 	mov	eax,ebp
 	push	eax
-	push	_579
+	push	_581
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_561
+	push	_563
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,0
 	mov	eax,dword [ebp-52]
 	cmp	ebx,dword [eax+20]
-	jb	_563
+	jb	_565
 	call	_brl_blitz_ArrayBoundsError
-_563:
+_565:
 	mov	eax,dword [ebp-52]
 	mov	eax,dword [eax+ebx*4+24]
 	mov	dword [ebp-28],eax
-	push	_564
+	push	_566
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	eax,dword [ebp-52]
 	push	dword [eax+20]
 	push	1
 	push	dword [ebp-52]
-	push	_543
+	push	_545
 	call	_bbArraySlice
 	add	esp,16
 	mov	dword [ebp-52],eax
-	push	_565
+	push	_567
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	dword [ebp-44],0
 	mov	eax,dword [ebp-52]
 	mov	edi,dword [eax+20]
-	jmp	_566
+	jmp	_568
 _19:
 	mov	eax,ebp
 	push	eax
-	push	_578
+	push	_580
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_568
+	push	_570
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-44]
 	mov	eax,dword [ebp-52]
 	cmp	ebx,dword [eax+20]
-	jb	_570
+	jb	_572
 	call	_brl_blitz_ArrayBoundsError
-_570:
+_572:
 	mov	eax,dword [ebp-52]
 	shl	ebx,2
 	add	eax,ebx
@@ -1903,9 +1905,9 @@ _570:
 	mov	esi,dword [ebp-44]
 	mov	eax,dword [ebp-52]
 	cmp	esi,dword [eax+20]
-	jb	_573
+	jb	_575
 	call	_brl_blitz_ArrayBoundsError
-_573:
+_575:
 	mov	eax,dword [ebp-52]
 	push	dword [eax+esi*4+24]
 	push	_3
@@ -1919,22 +1921,22 @@ _573:
 	mov	esi,eax
 	mov	eax,dword [ebx+24]
 	dec	dword [eax+4]
-	jnz	_577
+	jnz	_579
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_577:
+_579:
 	mov	dword [ebx+24],esi
 	call	dword [_bbOnDebugLeaveScope]
 _17:
 	add	dword [ebp-44],1
-_566:
+_568:
 	cmp	dword [ebp-44],edi
 	jl	_19
 _18:
 	call	dword [_bbOnDebugLeaveScope]
-_560:
-	push	_580
+_562:
+	push	_582
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-52]
@@ -1956,10 +1958,10 @@ _skn3_systemex_TranslateKey:
 	mov	eax,dword [ebp+8]
 	mov	dword [ebp-4],eax
 	push	ebp
-	push	_604
+	push	_606
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_596
+	push	_598
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	eax,dword [ebp-4]
@@ -1967,33 +1969,33 @@ _skn3_systemex_TranslateKey:
 	setge	al
 	movzx	eax,al
 	cmp	eax,0
-	jne	_597
+	jne	_599
 	mov	edx,dword [ebp-4]
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	edx,dword [eax+20]
 	setl	al
 	movzx	eax,al
-_597:
+_599:
 	cmp	eax,0
-	je	_599
+	je	_601
 	push	ebp
-	push	_603
+	push	_605
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_600
+	push	_602
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-4]
-	mov	eax,dword [_48]
+	mov	eax,dword [_50]
 	cmp	ebx,dword [eax+20]
-	jb	_602
+	jb	_604
 	call	_brl_blitz_ArrayBoundsError
-_602:
-	mov	eax,dword [_48]
+_604:
+	mov	eax,dword [_50]
 	mov	ebx,dword [eax+ebx*4+24]
 	call	dword [_bbOnDebugLeaveScope]
 	jmp	_33
-_599:
+_601:
 	mov	ebx,0
 	jmp	_33
 _33:
@@ -2013,51 +2015,51 @@ _skn3_systemex_IsKeyDown:
 	mov	eax,dword [ebp+8]
 	mov	dword [ebp-4],eax
 	push	ebp
-	push	_616
+	push	_618
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_607
+	push	_609
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-4]
 	call	_skn3_systemex_TranslateKey
 	add	esp,4
 	mov	dword [ebp-4],eax
-	push	_608
+	push	_610
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	cmp	dword [ebp-4],0
-	jne	_609
+	jne	_611
 	push	ebp
-	push	_611
+	push	_613
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_610
+	push	_612
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,0
 	call	dword [_bbOnDebugLeaveScope]
 	jmp	_36
-_609:
-	push	_612
+_611:
+	push	_614
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-4]
 	call	_GetAsyncKeyState@4
 	and	eax,32768
 	cmp	eax,0
-	je	_613
+	je	_615
 	push	ebp
-	push	_615
+	push	_617
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_614
+	push	_616
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,1
 	call	dword [_bbOnDebugLeaveScope]
 	jmp	_36
-_613:
+_615:
 	mov	ebx,0
 	jmp	_36
 _36:
@@ -2080,33 +2082,33 @@ _skn3_systemex_GetOsVersion:
 	mov	dword [ebp-8],0
 	mov	dword [ebp-12],0
 	push	ebp
-	push	_670
+	push	_672
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_618
-	call	dword [_bbOnDebugEnterStm]
-	add	esp,4
 	push	_620
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
-	cmp	dword [_619],-1
-	jne	_621
-	push	ebp
-	push	_666
-	call	dword [_bbOnDebugEnterScope]
-	add	esp,8
 	push	_622
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
-	mov	dword [_619],0
-	push	_623
+	cmp	dword [_621],-1
+	jne	_623
+	push	ebp
+	push	_668
+	call	dword [_bbOnDebugEnterScope]
+	add	esp,8
+	push	_624
+	call	dword [_bbOnDebugEnterStm]
+	add	esp,4
+	mov	dword [_621],0
+	push	_625
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	156
 	call	_brl_bank_CreateBank
 	add	esp,4
 	mov	dword [ebp-4],eax
-	push	_625
+	push	_627
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	156
@@ -2114,14 +2116,14 @@ _skn3_systemex_GetOsVersion:
 	push	dword [ebp-4]
 	call	_brl_bank_PokeInt
 	add	esp,12
-	push	_626
+	push	_628
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-4]
 	cmp	ebx,_bbNullObject
-	jne	_628
+	jne	_630
 	call	_brl_blitz_NullObjectError
-_628:
+_630:
 	push	ebx
 	mov	eax,dword [ebx]
 	call	dword [eax+52]
@@ -2129,12 +2131,12 @@ _628:
 	push	eax
 	call	_GetVersionExW@4
 	cmp	eax,0
-	je	_629
+	je	_631
 	push	ebp
-	push	_662
+	push	_664
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_630
+	push	_632
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	4
@@ -2142,7 +2144,7 @@ _628:
 	call	_brl_bank_PeekInt
 	add	esp,8
 	mov	dword [ebp-8],eax
-	push	_632
+	push	_634
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	8
@@ -2150,43 +2152,32 @@ _628:
 	call	_brl_bank_PeekInt
 	add	esp,8
 	mov	dword [ebp-12],eax
-	push	_634
+	push	_636
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	eax,dword [ebp-8]
 	cmp	eax,5
-	je	_637
+	je	_639
 	cmp	eax,6
-	je	_638
-	jmp	_636
-_637:
+	je	_640
+	jmp	_638
+_639:
 	push	ebp
-	push	_651
+	push	_653
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_639
+	push	_641
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	eax,dword [ebp-12]
 	cmp	eax,0
-	je	_642
-	cmp	eax,1
-	je	_643
-	cmp	eax,2
 	je	_644
-	jmp	_641
-_642:
-	push	ebp
-	push	_646
-	call	dword [_bbOnDebugEnterScope]
-	add	esp,8
-	push	_645
-	call	dword [_bbOnDebugEnterStm]
-	add	esp,4
-	mov	dword [_619],1
-	call	dword [_bbOnDebugLeaveScope]
-	jmp	_641
-_643:
+	cmp	eax,1
+	je	_645
+	cmp	eax,2
+	je	_646
+	jmp	_643
+_644:
 	push	ebp
 	push	_648
 	call	dword [_bbOnDebugEnterScope]
@@ -2194,10 +2185,10 @@ _643:
 	push	_647
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
-	mov	dword [_619],2
+	mov	dword [_621],1
 	call	dword [_bbOnDebugLeaveScope]
-	jmp	_641
-_644:
+	jmp	_643
+_645:
 	push	ebp
 	push	_650
 	call	dword [_bbOnDebugEnterScope]
@@ -2205,38 +2196,38 @@ _644:
 	push	_649
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
-	mov	dword [_619],3
+	mov	dword [_621],2
 	call	dword [_bbOnDebugLeaveScope]
-	jmp	_641
-_641:
-	call	dword [_bbOnDebugLeaveScope]
-	jmp	_636
-_638:
+	jmp	_643
+_646:
 	push	ebp
-	push	_661
+	push	_652
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_652
+	push	_651
+	call	dword [_bbOnDebugEnterStm]
+	add	esp,4
+	mov	dword [_621],3
+	call	dword [_bbOnDebugLeaveScope]
+	jmp	_643
+_643:
+	call	dword [_bbOnDebugLeaveScope]
+	jmp	_638
+_640:
+	push	ebp
+	push	_663
+	call	dword [_bbOnDebugEnterScope]
+	add	esp,8
+	push	_654
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	eax,dword [ebp-12]
 	cmp	eax,0
-	je	_655
+	je	_657
 	cmp	eax,1
-	je	_656
-	jmp	_654
-_655:
-	push	ebp
-	push	_658
-	call	dword [_bbOnDebugEnterScope]
-	add	esp,8
-	push	_657
-	call	dword [_bbOnDebugEnterStm]
-	add	esp,4
-	mov	dword [_619],4
-	call	dword [_bbOnDebugLeaveScope]
-	jmp	_654
-_656:
+	je	_658
+	jmp	_656
+_657:
 	push	ebp
 	push	_660
 	call	dword [_bbOnDebugEnterScope]
@@ -2244,25 +2235,36 @@ _656:
 	push	_659
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
-	mov	dword [_619],5
+	mov	dword [_621],4
 	call	dword [_bbOnDebugLeaveScope]
-	jmp	_654
-_654:
+	jmp	_656
+_658:
+	push	ebp
+	push	_662
+	call	dword [_bbOnDebugEnterScope]
+	add	esp,8
+	push	_661
+	call	dword [_bbOnDebugEnterStm]
+	add	esp,4
+	mov	dword [_621],5
 	call	dword [_bbOnDebugLeaveScope]
-	jmp	_636
-_636:
+	jmp	_656
+_656:
 	call	dword [_bbOnDebugLeaveScope]
-_629:
-	push	_665
+	jmp	_638
+_638:
+	call	dword [_bbOnDebugLeaveScope]
+_631:
+	push	_667
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	dword [ebp-4],_bbNullObject
 	call	dword [_bbOnDebugLeaveScope]
-_621:
-	push	_669
+_623:
+	push	_671
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
-	mov	ebx,dword [_619]
+	mov	ebx,dword [_621]
 	jmp	_38
 _38:
 	call	dword [_bbOnDebugLeaveScope]
@@ -2288,78 +2290,78 @@ _skn3_systemex_GetTempDirectory:
 	mov	dword [ebp-20],_bbNullObject
 	mov	dword [ebp-24],0
 	push	ebp
-	push	_731
+	push	_733
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_673
-	call	dword [_bbOnDebugEnterStm]
-	add	esp,4
 	push	_675
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	_677
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
-	mov	eax,dword [_676]
+	push	_679
+	call	dword [_bbOnDebugEnterStm]
+	add	esp,4
+	mov	eax,dword [_678]
 	cmp	eax,0
 	sete	al
 	movzx	eax,al
 	cmp	eax,0
-	jne	_678
+	jne	_680
 	mov	eax,dword [ebp-4]
-_678:
+_680:
 	cmp	eax,0
-	je	_680
+	je	_682
 	push	ebp
-	push	_724
+	push	_726
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_681
+	push	_683
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
-	mov	dword [_676],1
-	push	_682
+	mov	dword [_678],1
+	push	_684
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,_1
 	inc	dword [ebx+4]
-	mov	eax,dword [_674]
+	mov	eax,dword [_676]
 	dec	dword [eax+4]
-	jnz	_686
+	jnz	_688
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_686:
-	mov	dword [_674],ebx
-	push	_687
-	call	dword [_bbOnDebugEnterStm]
-	add	esp,4
-	mov	dword [ebp-8],2
+_688:
+	mov	dword [_676],ebx
 	push	_689
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
-	mov	dword [ebp-12],2048
+	mov	dword [ebp-8],2
 	push	_691
+	call	dword [_bbOnDebugEnterStm]
+	add	esp,4
+	mov	dword [ebp-12],2048
+	push	_693
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	eax,dword [ebp-12]
 	imul	eax,dword [ebp-8]
 	mov	dword [ebp-16],eax
-	push	_693
+	push	_695
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	push	dword [ebp-16]
 	call	_brl_bank_CreateBank
 	add	esp,4
 	mov	dword [ebp-20],eax
-	push	_695
+	push	_697
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-20]
 	cmp	ebx,_bbNullObject
-	jne	_697
+	jne	_699
 	call	_brl_blitz_NullObjectError
-_697:
+_699:
 	push	ebx
 	mov	eax,dword [ebx]
 	call	dword [eax+52]
@@ -2368,38 +2370,38 @@ _697:
 	push	dword [ebp-12]
 	call	_GetTempPathW@8
 	mov	dword [ebp-24],eax
-	push	_699
+	push	_701
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	eax,dword [ebp-16]
 	sub	eax,dword [ebp-8]
 	cmp	dword [ebp-24],eax
-	jle	_700
+	jle	_702
 	push	ebp
-	push	_709
+	push	_711
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_701
+	push	_703
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	eax,dword [ebp-24]
 	add	eax,dword [ebp-8]
 	mov	dword [ebp-16],eax
-	push	_702
+	push	_704
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	eax,dword [ebp-24]
 	cdq
 	idiv	dword [ebp-8]
 	mov	dword [ebp-12],eax
-	push	_703
+	push	_705
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-20]
 	cmp	ebx,_bbNullObject
-	jne	_705
+	jne	_707
 	call	_brl_blitz_NullObjectError
-_705:
+_707:
 	mov	eax,dword [ebp-16]
 	imul	eax,dword [ebp-8]
 	push	eax
@@ -2407,14 +2409,14 @@ _705:
 	mov	eax,dword [ebx]
 	call	dword [eax+72]
 	add	esp,8
-	push	_706
+	push	_708
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	ebx,dword [ebp-20]
 	cmp	ebx,_bbNullObject
-	jne	_708
+	jne	_710
 	call	_brl_blitz_NullObjectError
-_708:
+_710:
 	push	ebx
 	mov	eax,dword [ebx]
 	call	dword [eax+52]
@@ -2424,35 +2426,35 @@ _708:
 	call	_GetTempPathW@8
 	mov	dword [ebp-24],eax
 	call	dword [_bbOnDebugLeaveScope]
-_700:
-	push	_710
+_702:
+	push	_712
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	cmp	dword [ebp-24],0
-	jle	_711
+	jle	_713
 	push	ebp
-	push	_723
+	push	_725
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_712
+	push	_714
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	dword [ebp-16],0
 	mov	ebx,dword [ebp-24]
-	jmp	_713
+	jmp	_715
 _22:
 	push	ebp
-	push	_722
+	push	_724
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
-	push	_715
+	push	_717
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
 	mov	esi,dword [ebp-20]
 	cmp	esi,_bbNullObject
-	jne	_717
+	jne	_719
 	call	_brl_blitz_NullObjectError
-_717:
+_719:
 	mov	eax,dword [ebp-16]
 	shl	eax,1
 	push	eax
@@ -2464,34 +2466,34 @@ _717:
 	call	_bbStringFromChar
 	add	esp,4
 	push	eax
-	push	dword [_674]
+	push	dword [_676]
 	call	_bbStringConcat
 	add	esp,8
 	inc	dword [eax+4]
 	mov	esi,eax
-	mov	eax,dword [_674]
+	mov	eax,dword [_676]
 	dec	dword [eax+4]
-	jnz	_721
+	jnz	_723
 	push	eax
 	call	_bbGCFree
 	add	esp,4
-_721:
-	mov	dword [_674],esi
+_723:
+	mov	dword [_676],esi
 	call	dword [_bbOnDebugLeaveScope]
 _20:
 	add	dword [ebp-16],1
-_713:
+_715:
 	cmp	dword [ebp-16],ebx
 	jl	_22
 _21:
 	call	dword [_bbOnDebugLeaveScope]
-_711:
+_713:
 	call	dword [_bbOnDebugLeaveScope]
-_680:
-	push	_730
+_682:
+	push	_732
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
-	mov	ebx,dword [_674]
+	mov	ebx,dword [_676]
 	jmp	_41
 _41:
 	call	dword [_bbOnDebugLeaveScope]
@@ -2507,32 +2509,32 @@ _skn3_systemex_KeepSystemAlive:
 	mov	ebp,esp
 	push	ebx
 	push	ebp
-	push	_742
-	call	dword [_bbOnDebugEnterScope]
-	add	esp,8
-	push	_736
-	call	dword [_bbOnDebugEnterStm]
-	add	esp,4
-	cmp	dword [_brl_system_Driver],_bbNullObject
-	je	_737
-	push	ebp
-	push	_741
+	push	_744
 	call	dword [_bbOnDebugEnterScope]
 	add	esp,8
 	push	_738
 	call	dword [_bbOnDebugEnterStm]
 	add	esp,4
+	cmp	dword [_brl_system_Driver],_bbNullObject
+	je	_739
+	push	ebp
+	push	_743
+	call	dword [_bbOnDebugEnterScope]
+	add	esp,8
+	push	_740
+	call	dword [_bbOnDebugEnterStm]
+	add	esp,4
 	mov	ebx,dword [_brl_system_Driver]
 	cmp	ebx,_bbNullObject
-	jne	_740
+	jne	_742
 	call	_brl_blitz_NullObjectError
-_740:
+_742:
 	push	ebx
 	mov	eax,dword [ebx]
 	call	dword [eax+48]
 	add	esp,4
 	call	dword [_bbOnDebugLeaveScope]
-_737:
+_739:
 	mov	ebx,0
 	jmp	_43
 _43:
@@ -2542,740 +2544,781 @@ _43:
 	mov	esp,ebp
 	pop	ebp
 	ret
+_skn3_systemex_GetMousePosition:
+	push	ebp
+	mov	ebp,esp
+	sub	esp,4
+	push	ebx
+	push	esi
+	push	edi
+	mov	dword [ebp-4],_bbEmptyArray
+	push	ebp
+	push	_751
+	call	dword [_bbOnDebugEnterScope]
+	add	esp,8
+	push	_746
+	call	dword [_bbOnDebugEnterStm]
+	add	esp,4
+	push	2
+	push	_747
+	call	_bbArrayNew1D
+	add	esp,8
+	mov	dword [ebp-4],eax
+	push	_749
+	call	dword [_bbOnDebugEnterStm]
+	add	esp,4
+	mov	eax,dword [ebp-4]
+	lea	eax,byte [eax+24]
+	push	eax
+	call	_GetCursorPos@4
+	push	_750
+	call	dword [_bbOnDebugEnterStm]
+	add	esp,4
+	mov	ebx,dword [ebp-4]
+	jmp	_45
+_45:
+	call	dword [_bbOnDebugLeaveScope]
+	mov	eax,ebx
+	pop	edi
+	pop	esi
+	pop	ebx
+	mov	esp,ebp
+	pop	ebp
+	ret
 	section	"data" data writeable align 8
 	align	4
-_493:
+_495:
 	dd	0
-_477:
-	db	"systemex",0
-_478:
-	db	"WINDOWS_UNKNOWN",0
 _479:
-	db	"i",0
-	align	4
+	db	"systemex",0
 _480:
-	dd	_bbStringClass
-	dd	2147483646
-	dd	1
-	dw	48
+	db	"WINDOWS_UNKNOWN",0
 _481:
-	db	"WINDOWS_2000",0
+	db	"i",0
 	align	4
 _482:
 	dd	_bbStringClass
 	dd	2147483646
 	dd	1
-	dw	49
+	dw	48
 _483:
-	db	"WINDOWS_XP",0
+	db	"WINDOWS_2000",0
 	align	4
 _484:
 	dd	_bbStringClass
 	dd	2147483646
 	dd	1
-	dw	50
+	dw	49
 _485:
-	db	"WINDOWS_2003",0
+	db	"WINDOWS_XP",0
 	align	4
 _486:
 	dd	_bbStringClass
 	dd	2147483646
 	dd	1
-	dw	51
+	dw	50
 _487:
-	db	"WINDOWS_VISTA",0
+	db	"WINDOWS_2003",0
 	align	4
 _488:
 	dd	_bbStringClass
 	dd	2147483646
 	dd	1
-	dw	52
+	dw	51
 _489:
-	db	"WINDOWS_7",0
+	db	"WINDOWS_VISTA",0
 	align	4
 _490:
 	dd	_bbStringClass
 	dd	2147483646
 	dd	1
-	dw	53
+	dw	52
 _491:
-	db	"TranslateKeysMap",0
+	db	"WINDOWS_7",0
+	align	4
 _492:
+	dd	_bbStringClass
+	dd	2147483646
+	dd	1
+	dw	53
+_493:
+	db	"TranslateKeysMap",0
+_494:
 	db	"[]i",0
 	align	4
-_48:
+_50:
 	dd	_bbEmptyArray
 	align	4
-_476:
+_478:
 	dd	1
-	dd	_477
-	dd	1
-	dd	_478
 	dd	_479
+	dd	1
 	dd	_480
-	dd	1
 	dd	_481
-	dd	_479
 	dd	_482
 	dd	1
 	dd	_483
-	dd	_479
+	dd	_481
 	dd	_484
 	dd	1
 	dd	_485
-	dd	_479
+	dd	_481
 	dd	_486
 	dd	1
 	dd	_487
-	dd	_479
+	dd	_481
 	dd	_488
 	dd	1
 	dd	_489
-	dd	_479
+	dd	_481
 	dd	_490
-	dd	4
+	dd	1
 	dd	_491
+	dd	_481
 	dd	_492
-	dd	_48
+	dd	4
+	dd	_493
+	dd	_494
+	dd	_50
 	dd	0
-_46:
+_48:
 	db	"$BMXPATH/mod/skn3.mod/systemex.mod/systemex.bmx",0
 	align	4
-_45:
-	dd	_46
-	dd	49
-	dd	1
-	align	4
-_50:
-	dd	0
 _47:
-	db	"i",0
-	align	4
-_52:
-	dd	_46
-	dd	50
-	dd	1
-	align	4
-_56:
-	dd	_46
+	dd	_48
 	dd	51
 	dd	1
 	align	4
-_60:
-	dd	_46
+_52:
+	dd	0
+_49:
+	db	"i",0
+	align	4
+_54:
+	dd	_48
 	dd	52
 	dd	1
 	align	4
-_64:
-	dd	_46
+_58:
+	dd	_48
+	dd	53
+	dd	1
+	align	4
+_62:
+	dd	_48
 	dd	54
 	dd	1
 	align	4
-_68:
-	dd	_46
-	dd	55
-	dd	1
-	align	4
-_72:
-	dd	_46
+_66:
+	dd	_48
 	dd	56
 	dd	1
 	align	4
-_76:
-	dd	_46
+_70:
+	dd	_48
 	dd	57
 	dd	1
 	align	4
-_80:
-	dd	_46
+_74:
+	dd	_48
 	dd	58
 	dd	1
 	align	4
-_84:
-	dd	_46
+_78:
+	dd	_48
 	dd	59
 	dd	1
 	align	4
-_88:
-	dd	_46
+_82:
+	dd	_48
 	dd	60
 	dd	1
 	align	4
-_92:
-	dd	_46
+_86:
+	dd	_48
 	dd	61
 	dd	1
 	align	4
-_96:
-	dd	_46
+_90:
+	dd	_48
 	dd	62
 	dd	1
 	align	4
-_100:
-	dd	_46
+_94:
+	dd	_48
 	dd	63
 	dd	1
 	align	4
-_104:
-	dd	_46
+_98:
+	dd	_48
 	dd	64
 	dd	1
 	align	4
-_108:
-	dd	_46
+_102:
+	dd	_48
+	dd	65
+	dd	1
+	align	4
+_106:
+	dd	_48
 	dd	66
 	dd	1
 	align	4
-_112:
-	dd	_46
-	dd	67
-	dd	1
-	align	4
-_116:
-	dd	_46
+_110:
+	dd	_48
 	dd	68
 	dd	1
 	align	4
-_120:
-	dd	_46
+_114:
+	dd	_48
 	dd	69
 	dd	1
 	align	4
-_124:
-	dd	_46
+_118:
+	dd	_48
+	dd	70
+	dd	1
+	align	4
+_122:
+	dd	_48
 	dd	71
 	dd	1
 	align	4
-_128:
-	dd	_46
-	dd	72
-	dd	1
-	align	4
-_132:
-	dd	_46
+_126:
+	dd	_48
 	dd	73
 	dd	1
 	align	4
-_136:
-	dd	_46
+_130:
+	dd	_48
 	dd	74
 	dd	1
 	align	4
-_140:
-	dd	_46
+_134:
+	dd	_48
 	dd	75
 	dd	1
 	align	4
-_144:
-	dd	_46
+_138:
+	dd	_48
 	dd	76
 	dd	1
 	align	4
-_148:
-	dd	_46
+_142:
+	dd	_48
+	dd	77
+	dd	1
+	align	4
+_146:
+	dd	_48
 	dd	78
 	dd	1
 	align	4
-_152:
-	dd	_46
-	dd	79
-	dd	1
-	align	4
-_156:
-	dd	_46
+_150:
+	dd	_48
 	dd	80
 	dd	1
 	align	4
-_160:
-	dd	_46
+_154:
+	dd	_48
 	dd	81
 	dd	1
 	align	4
-_164:
-	dd	_46
+_158:
+	dd	_48
 	dd	82
 	dd	1
 	align	4
-_168:
-	dd	_46
+_162:
+	dd	_48
 	dd	83
 	dd	1
 	align	4
-_172:
-	dd	_46
+_166:
+	dd	_48
 	dd	84
 	dd	1
 	align	4
-_176:
-	dd	_46
+_170:
+	dd	_48
 	dd	85
 	dd	1
 	align	4
-_180:
-	dd	_46
+_174:
+	dd	_48
 	dd	86
 	dd	1
 	align	4
-_184:
-	dd	_46
+_178:
+	dd	_48
 	dd	87
 	dd	1
 	align	4
-_188:
-	dd	_46
+_182:
+	dd	_48
 	dd	88
 	dd	1
 	align	4
-_192:
-	dd	_46
+_186:
+	dd	_48
 	dd	89
 	dd	1
 	align	4
-_196:
-	dd	_46
+_190:
+	dd	_48
 	dd	90
 	dd	1
 	align	4
-_200:
-	dd	_46
+_194:
+	dd	_48
 	dd	91
 	dd	1
 	align	4
-_204:
-	dd	_46
+_198:
+	dd	_48
 	dd	92
 	dd	1
 	align	4
-_208:
-	dd	_46
+_202:
+	dd	_48
 	dd	93
 	dd	1
 	align	4
-_212:
-	dd	_46
+_206:
+	dd	_48
 	dd	94
 	dd	1
 	align	4
-_216:
-	dd	_46
+_210:
+	dd	_48
 	dd	95
 	dd	1
 	align	4
-_220:
-	dd	_46
+_214:
+	dd	_48
 	dd	96
 	dd	1
 	align	4
-_224:
-	dd	_46
+_218:
+	dd	_48
 	dd	97
 	dd	1
 	align	4
-_228:
-	dd	_46
+_222:
+	dd	_48
 	dd	98
 	dd	1
 	align	4
-_232:
-	dd	_46
+_226:
+	dd	_48
 	dd	99
 	dd	1
 	align	4
-_236:
-	dd	_46
+_230:
+	dd	_48
 	dd	100
 	dd	1
 	align	4
-_240:
-	dd	_46
+_234:
+	dd	_48
 	dd	101
 	dd	1
 	align	4
-_244:
-	dd	_46
+_238:
+	dd	_48
 	dd	102
 	dd	1
 	align	4
-_248:
-	dd	_46
+_242:
+	dd	_48
 	dd	103
 	dd	1
 	align	4
-_252:
-	dd	_46
+_246:
+	dd	_48
 	dd	104
 	dd	1
 	align	4
-_256:
-	dd	_46
+_250:
+	dd	_48
 	dd	105
 	dd	1
 	align	4
-_260:
-	dd	_46
+_254:
+	dd	_48
 	dd	106
 	dd	1
 	align	4
-_264:
-	dd	_46
+_258:
+	dd	_48
 	dd	107
 	dd	1
 	align	4
-_268:
-	dd	_46
+_262:
+	dd	_48
 	dd	108
 	dd	1
 	align	4
-_272:
-	dd	_46
+_266:
+	dd	_48
 	dd	109
 	dd	1
 	align	4
-_276:
-	dd	_46
+_270:
+	dd	_48
 	dd	110
 	dd	1
 	align	4
-_280:
-	dd	_46
+_274:
+	dd	_48
 	dd	111
 	dd	1
 	align	4
-_284:
-	dd	_46
+_278:
+	dd	_48
 	dd	112
 	dd	1
 	align	4
-_288:
-	dd	_46
+_282:
+	dd	_48
 	dd	113
 	dd	1
 	align	4
-_292:
-	dd	_46
+_286:
+	dd	_48
+	dd	114
+	dd	1
+	align	4
+_290:
+	dd	_48
 	dd	115
 	dd	1
 	align	4
-_296:
-	dd	_46
-	dd	116
-	dd	1
-	align	4
-_300:
-	dd	_46
+_294:
+	dd	_48
 	dd	117
 	dd	1
 	align	4
-_304:
-	dd	_46
+_298:
+	dd	_48
 	dd	118
 	dd	1
 	align	4
-_308:
-	dd	_46
+_302:
+	dd	_48
 	dd	119
 	dd	1
 	align	4
-_312:
-	dd	_46
+_306:
+	dd	_48
 	dd	120
 	dd	1
 	align	4
-_316:
-	dd	_46
+_310:
+	dd	_48
 	dd	121
 	dd	1
 	align	4
-_320:
-	dd	_46
+_314:
+	dd	_48
 	dd	122
 	dd	1
 	align	4
-_324:
-	dd	_46
+_318:
+	dd	_48
 	dd	123
 	dd	1
 	align	4
-_328:
-	dd	_46
+_322:
+	dd	_48
 	dd	124
 	dd	1
 	align	4
-_332:
-	dd	_46
+_326:
+	dd	_48
+	dd	125
+	dd	1
+	align	4
+_330:
+	dd	_48
 	dd	126
 	dd	1
 	align	4
-_336:
-	dd	_46
-	dd	127
-	dd	1
-	align	4
-_340:
-	dd	_46
+_334:
+	dd	_48
 	dd	128
 	dd	1
 	align	4
-_344:
-	dd	_46
+_338:
+	dd	_48
 	dd	129
 	dd	1
 	align	4
-_348:
-	dd	_46
+_342:
+	dd	_48
 	dd	130
 	dd	1
 	align	4
-_352:
-	dd	_46
+_346:
+	dd	_48
+	dd	131
+	dd	1
+	align	4
+_350:
+	dd	_48
 	dd	132
 	dd	1
 	align	4
-_356:
-	dd	_46
-	dd	133
-	dd	1
-	align	4
-_360:
-	dd	_46
+_354:
+	dd	_48
 	dd	134
 	dd	1
 	align	4
-_364:
-	dd	_46
+_358:
+	dd	_48
 	dd	135
 	dd	1
 	align	4
-_368:
-	dd	_46
+_362:
+	dd	_48
 	dd	136
 	dd	1
 	align	4
-_372:
-	dd	_46
+_366:
+	dd	_48
 	dd	137
 	dd	1
 	align	4
-_376:
-	dd	_46
+_370:
+	dd	_48
 	dd	138
 	dd	1
 	align	4
-_380:
-	dd	_46
+_374:
+	dd	_48
 	dd	139
 	dd	1
 	align	4
-_384:
-	dd	_46
+_378:
+	dd	_48
 	dd	140
 	dd	1
 	align	4
-_388:
-	dd	_46
+_382:
+	dd	_48
 	dd	141
 	dd	1
 	align	4
-_392:
-	dd	_46
+_386:
+	dd	_48
 	dd	142
 	dd	1
 	align	4
-_396:
-	dd	_46
+_390:
+	dd	_48
 	dd	143
 	dd	1
 	align	4
-_400:
-	dd	_46
+_394:
+	dd	_48
+	dd	144
+	dd	1
+	align	4
+_398:
+	dd	_48
 	dd	145
 	dd	1
 	align	4
-_404:
-	dd	_46
-	dd	146
-	dd	1
-	align	4
-_408:
-	dd	_46
+_402:
+	dd	_48
 	dd	147
 	dd	1
 	align	4
-_412:
-	dd	_46
+_406:
+	dd	_48
+	dd	148
+	dd	1
+	align	4
+_410:
+	dd	_48
 	dd	149
 	dd	1
 	align	4
-_416:
-	dd	_46
-	dd	150
-	dd	1
-	align	4
-_420:
-	dd	_46
+_414:
+	dd	_48
 	dd	151
 	dd	1
 	align	4
-_424:
-	dd	_46
+_418:
+	dd	_48
+	dd	152
+	dd	1
+	align	4
+_422:
+	dd	_48
 	dd	153
 	dd	1
 	align	4
-_428:
-	dd	_46
-	dd	154
+_426:
+	dd	_48
+	dd	155
 	dd	1
 	align	4
-_432:
-	dd	_46
+_430:
+	dd	_48
 	dd	156
 	dd	1
 	align	4
-_436:
-	dd	_46
-	dd	157
-	dd	1
-	align	4
-_440:
-	dd	_46
+_434:
+	dd	_48
 	dd	158
 	dd	1
 	align	4
-_444:
-	dd	_46
+_438:
+	dd	_48
+	dd	159
+	dd	1
+	align	4
+_442:
+	dd	_48
 	dd	160
 	dd	1
 	align	4
-_448:
-	dd	_46
-	dd	161
-	dd	1
-	align	4
-_452:
-	dd	_46
+_446:
+	dd	_48
 	dd	162
 	dd	1
 	align	4
-_456:
-	dd	_46
+_450:
+	dd	_48
 	dd	163
 	dd	1
 	align	4
-_460:
-	dd	_46
+_454:
+	dd	_48
 	dd	164
 	dd	1
 	align	4
-_464:
-	dd	_46
+_458:
+	dd	_48
 	dd	165
 	dd	1
 	align	4
-_468:
-	dd	_46
+_462:
+	dd	_48
 	dd	166
 	dd	1
 	align	4
-_472:
-	dd	_46
+_466:
+	dd	_48
 	dd	167
 	dd	1
-_582:
-	db	"RequestFiles",0
-_583:
-	db	"text",0
-_543:
-	db	"$",0
+	align	4
+_470:
+	dd	_48
+	dd	168
+	dd	1
+	align	4
+_474:
+	dd	_48
+	dd	169
+	dd	1
 _584:
-	db	"exts",0
+	db	"RequestFiles",0
 _585:
-	db	"save",0
+	db	"text",0
+_545:
+	db	"$",0
 _586:
-	db	"multiple",0
+	db	"exts",0
 _587:
-	db	"path",0
+	db	"save",0
 _588:
-	db	"file",0
+	db	"multiple",0
 _589:
-	db	"dir",0
+	db	"path",0
 _590:
-	db	"ext",0
+	db	"file",0
 _591:
-	db	"defext",0
+	db	"dir",0
 _592:
-	db	"p",0
+	db	"ext",0
 _593:
-	db	"q",0
+	db	"defext",0
 _594:
-	db	"paths",0
+	db	"p",0
 _595:
+	db	"q",0
+_596:
+	db	"paths",0
+_597:
 	db	"[]$",0
 	align	4
-_581:
+_583:
 	dd	1
-	dd	_582
-	dd	2
-	dd	_583
-	dd	_543
-	dd	-4
-	dd	2
 	dd	_584
-	dd	_543
-	dd	-8
 	dd	2
 	dd	_585
-	dd	_479
-	dd	-12
+	dd	_545
+	dd	-4
 	dd	2
 	dd	_586
-	dd	_479
-	dd	-16
+	dd	_545
+	dd	-8
 	dd	2
 	dd	_587
-	dd	_543
-	dd	-20
+	dd	_481
+	dd	-12
 	dd	2
 	dd	_588
-	dd	_543
-	dd	-24
+	dd	_481
+	dd	-16
 	dd	2
 	dd	_589
-	dd	_543
-	dd	-28
-	dd	2
-	dd	_479
-	dd	_479
-	dd	-32
+	dd	_545
+	dd	-20
 	dd	2
 	dd	_590
-	dd	_543
-	dd	-36
+	dd	_545
+	dd	-24
 	dd	2
 	dd	_591
-	dd	_479
-	dd	-40
+	dd	_545
+	dd	-28
+	dd	2
+	dd	_481
+	dd	_481
+	dd	-32
 	dd	2
 	dd	_592
-	dd	_479
-	dd	-44
+	dd	_545
+	dd	-36
 	dd	2
 	dd	_593
-	dd	_479
-	dd	-48
+	dd	_481
+	dd	-40
 	dd	2
 	dd	_594
+	dd	_481
+	dd	-44
+	dd	2
 	dd	_595
+	dd	_481
+	dd	-48
+	dd	2
+	dd	_596
+	dd	_597
 	dd	-52
 	dd	0
 	align	4
-_495:
-	dd	_46
-	dd	358
+_497:
+	dd	_48
+	dd	362
 	dd	3
 	align	4
-_498:
-	dd	_46
-	dd	360
+_500:
+	dd	_48
+	dd	364
 	dd	3
 	align	4
 _3:
@@ -3290,49 +3333,49 @@ _2:
 	dd	1
 	dw	47
 	align	4
-_499:
-	dd	_46
-	dd	362
-	dd	3
-	align	4
 _501:
-	dd	_46
-	dd	363
+	dd	_48
+	dd	366
 	dd	3
-	align	4
-_505:
-	dd	3
-	dd	0
-	dd	0
 	align	4
 _503:
-	dd	_46
-	dd	364
-	dd	4
-	align	4
-_504:
-	dd	_46
-	dd	365
-	dd	4
-	align	4
-_508:
+	dd	_48
+	dd	367
 	dd	3
-	dd	0
-	dd	0
 	align	4
 _507:
-	dd	_46
-	dd	367
+	dd	3
+	dd	0
+	dd	0
+	align	4
+_505:
+	dd	_48
+	dd	368
 	dd	4
 	align	4
+_506:
+	dd	_48
+	dd	369
+	dd	4
+	align	4
+_510:
+	dd	3
+	dd	0
+	dd	0
+	align	4
 _509:
-	dd	_46
+	dd	_48
 	dd	371
+	dd	4
+	align	4
+_511:
+	dd	_48
+	dd	375
 	dd	3
 	align	4
-_514:
-	dd	_46
-	dd	372
+_516:
+	dd	_48
+	dd	376
 	dd	3
 	align	4
 _4:
@@ -3341,25 +3384,25 @@ _4:
 	dd	1
 	dw	46
 	align	4
-_515:
-	dd	_46
-	dd	373
+_517:
+	dd	_48
+	dd	377
 	dd	3
-_542:
+_544:
 	db	"exs",0
 	align	4
-_541:
+_543:
 	dd	3
 	dd	0
 	dd	2
-	dd	_542
-	dd	_543
+	dd	_544
+	dd	_545
 	dd	-56
 	dd	0
 	align	4
-_517:
-	dd	_46
-	dd	374
+_519:
+	dd	_48
+	dd	378
 	dd	4
 	align	4
 _5:
@@ -3368,14 +3411,14 @@ _5:
 	dd	1
 	dw	44
 	align	4
-_518:
-	dd	_46
-	dd	375
+_520:
+	dd	_48
+	dd	379
 	dd	4
 	align	4
-_520:
-	dd	_46
-	dd	376
+_522:
+	dd	_48
+	dd	380
 	dd	4
 	align	4
 _7:
@@ -3390,9 +3433,9 @@ _6:
 	dd	1
 	dw	58
 	align	4
-_521:
-	dd	_46
-	dd	377
+_523:
+	dd	_48
+	dd	381
 	dd	4
 	align	4
 _9:
@@ -3407,109 +3450,109 @@ _8:
 	dd	1
 	dw	59
 	align	4
-_522:
-	dd	_46
-	dd	378
+_524:
+	dd	_48
+	dd	382
 	dd	4
 	align	4
-_523:
-	dd	_46
-	dd	379
+_525:
+	dd	_48
+	dd	383
 	dd	4
 	align	4
-_540:
+_542:
 	dd	3
 	dd	0
 	dd	0
 	align	4
-_525:
-	dd	_46
-	dd	380
-	dd	5
-	align	4
-_526:
-	dd	_46
-	dd	381
-	dd	5
-	align	4
 _527:
-	dd	_46
-	dd	382
+	dd	_48
+	dd	384
 	dd	5
+	align	4
+_528:
+	dd	_48
+	dd	385
+	dd	5
+	align	4
+_529:
+	dd	_48
+	dd	386
+	dd	5
+	align	4
+_541:
+	dd	3
+	dd	0
+	dd	0
+	align	4
+_530:
+	dd	_48
+	dd	387
+	dd	6
+	align	4
+_531:
+	dd	_48
+	dd	388
+	dd	6
+	align	4
+_534:
+	dd	3
+	dd	0
+	dd	0
+	align	4
+_533:
+	dd	_48
+	dd	388
+	dd	13
+	align	4
+_535:
+	dd	_48
+	dd	389
+	dd	6
 	align	4
 _539:
 	dd	3
 	dd	0
 	dd	0
 	align	4
-_528:
-	dd	_46
-	dd	383
-	dd	6
-	align	4
-_529:
-	dd	_46
-	dd	384
-	dd	6
-	align	4
-_532:
-	dd	3
-	dd	0
-	dd	0
-	align	4
-_531:
-	dd	_46
-	dd	384
-	dd	13
-	align	4
-_533:
-	dd	_46
-	dd	385
-	dd	6
-	align	4
 _537:
-	dd	3
-	dd	0
-	dd	0
-	align	4
-_535:
-	dd	_46
-	dd	385
+	dd	_48
+	dd	389
 	dd	14
 	align	4
-_536:
-	dd	_46
-	dd	385
+_538:
+	dd	_48
+	dd	389
 	dd	23
 	align	4
-_538:
-	dd	_46
-	dd	386
+_540:
+	dd	_48
+	dd	390
 	dd	6
 	align	4
-_544:
-	dd	_46
-	dd	391
-	dd	3
-	align	4
-_555:
-	dd	3
-	dd	0
-	dd	0
-	align	4
 _546:
-	dd	_46
-	dd	392
-	dd	4
+	dd	_48
+	dd	395
+	dd	3
 	align	4
-_549:
+_557:
 	dd	3
 	dd	0
 	dd	0
 	align	4
 _548:
-	dd	_46
-	dd	393
+	dd	_48
+	dd	396
+	dd	4
+	align	4
+_551:
+	dd	3
+	dd	0
+	dd	0
+	align	4
+_550:
+	dd	_48
+	dd	397
 	dd	5
 	align	4
 _13:
@@ -3518,14 +3561,14 @@ _13:
 	dd	8
 	dw	70,105,108,101,115,0,42,46
 	align	4
-_552:
+_554:
 	dd	3
 	dd	0
 	dd	0
 	align	4
-_551:
-	dd	_46
-	dd	395
+_553:
+	dd	_48
+	dd	399
 	dd	5
 	align	4
 _14:
@@ -3534,9 +3577,9 @@ _14:
 	dd	3
 	dw	0,42,46
 	align	4
-_553:
-	dd	_46
-	dd	397
+_555:
+	dd	_48
+	dd	401
 	dd	4
 	align	4
 _15:
@@ -3545,9 +3588,9 @@ _15:
 	dd	1
 	dw	0
 	align	4
-_554:
-	dd	_46
-	dd	398
+_556:
+	dd	_48
+	dd	402
 	dd	4
 	align	4
 _16:
@@ -3556,240 +3599,230 @@ _16:
 	dd	3
 	dw	59,42,46
 	align	4
-_556:
-	dd	_46
-	dd	402
-	dd	3
-	align	4
 _558:
-	dd	_46
-	dd	405
+	dd	_48
+	dd	406
 	dd	3
 	align	4
-_559:
-	dd	_46
-	dd	408
+_560:
+	dd	_48
+	dd	409
 	dd	3
-	align	4
-_579:
-	dd	3
-	dd	0
-	dd	0
 	align	4
 _561:
-	dd	_46
-	dd	410
-	dd	4
+	dd	_48
+	dd	412
+	dd	3
 	align	4
-_564:
-	dd	_46
-	dd	413
-	dd	4
-	align	4
-_565:
-	dd	_46
-	dd	416
-	dd	4
-	align	4
-_578:
+_581:
 	dd	3
 	dd	0
 	dd	0
 	align	4
-_568:
-	dd	_46
+_563:
+	dd	_48
+	dd	414
+	dd	4
+	align	4
+_566:
+	dd	_48
 	dd	417
-	dd	5
+	dd	4
+	align	4
+_567:
+	dd	_48
+	dd	420
+	dd	4
 	align	4
 _580:
-	dd	_46
-	dd	422
 	dd	3
-_605:
+	dd	0
+	dd	0
+	align	4
+_570:
+	dd	_48
+	dd	421
+	dd	5
+	align	4
+_582:
+	dd	_48
+	dd	426
+	dd	3
+_607:
 	db	"TranslateKey",0
-_606:
+_608:
 	db	"Code",0
 	align	4
-_604:
+_606:
 	dd	1
-	dd	_605
+	dd	_607
 	dd	2
-	dd	_606
-	dd	_479
+	dd	_608
+	dd	_481
 	dd	-4
 	dd	0
 	align	4
-_596:
-	dd	_46
-	dd	488
+_598:
+	dd	_48
+	dd	492
 	dd	3
 	align	4
-_603:
+_605:
 	dd	3
 	dd	0
 	dd	0
 	align	4
-_600:
-	dd	_46
-	dd	488
+_602:
+	dd	_48
+	dd	492
 	dd	50
-_617:
+_619:
 	db	"IsKeyDown",0
 	align	4
-_616:
+_618:
 	dd	1
-	dd	_617
+	dd	_619
 	dd	2
-	dd	_606
-	dd	_479
+	dd	_608
+	dd	_481
 	dd	-4
 	dd	0
 	align	4
-_607:
-	dd	_46
-	dd	514
+_609:
+	dd	_48
+	dd	518
 	dd	3
-	align	4
-_608:
-	dd	_46
-	dd	515
-	dd	3
-	align	4
-_611:
-	dd	3
-	dd	0
-	dd	0
 	align	4
 _610:
-	dd	_46
-	dd	515
-	dd	15
+	dd	_48
+	dd	519
+	dd	3
+	align	4
+_613:
+	dd	3
+	dd	0
+	dd	0
 	align	4
 _612:
-	dd	_46
-	dd	518
-	dd	3
-	align	4
-_615:
-	dd	3
-	dd	0
-	dd	0
+	dd	_48
+	dd	519
+	dd	15
 	align	4
 _614:
-	dd	_46
-	dd	518
-	dd	42
-_671:
-	db	"GetOsVersion",0
-_672:
-	db	"cacheVersion",0
+	dd	_48
+	dd	522
+	dd	3
 	align	4
-_619:
-	dd	-1
-	align	4
-_670:
-	dd	1
-	dd	_671
-	dd	4
-	dd	_672
-	dd	_479
-	dd	_619
+_617:
+	dd	3
+	dd	0
 	dd	0
 	align	4
-_618:
-	dd	_46
-	dd	564
-	dd	3
+_616:
+	dd	_48
+	dd	522
+	dd	42
+_673:
+	db	"GetOsVersion",0
+_674:
+	db	"cacheVersion",0
+	align	4
+_621:
+	dd	-1
+	align	4
+_672:
+	dd	1
+	dd	_673
+	dd	4
+	dd	_674
+	dd	_481
+	dd	_621
+	dd	0
 	align	4
 _620:
-	dd	_46
-	dd	567
+	dd	_48
+	dd	568
 	dd	3
-_667:
+	align	4
+_622:
+	dd	_48
+	dd	571
+	dd	3
+_669:
 	db	"data",0
-_668:
+_670:
 	db	":brl.bank.TBank",0
 	align	4
-_666:
+_668:
 	dd	3
 	dd	0
 	dd	2
-	dd	_667
-	dd	_668
+	dd	_669
+	dd	_670
 	dd	-4
 	dd	0
 	align	4
-_622:
-	dd	_46
-	dd	569
-	dd	4
-	align	4
-_623:
-	dd	_46
-	dd	572
-	dd	4
-	align	4
-_625:
-	dd	_46
+_624:
+	dd	_48
 	dd	573
 	dd	4
 	align	4
-_626:
-	dd	_46
-	dd	574
+_625:
+	dd	_48
+	dd	576
 	dd	4
-_663:
+	align	4
+_627:
+	dd	_48
+	dd	577
+	dd	4
+	align	4
+_628:
+	dd	_48
+	dd	578
+	dd	4
+_665:
 	db	"major",0
-_664:
+_666:
 	db	"minor",0
 	align	4
-_662:
+_664:
 	dd	3
 	dd	0
 	dd	2
-	dd	_663
-	dd	_479
+	dd	_665
+	dd	_481
 	dd	-8
 	dd	2
-	dd	_664
-	dd	_479
+	dd	_666
+	dd	_481
 	dd	-12
 	dd	0
 	align	4
-_630:
-	dd	_46
-	dd	576
-	dd	5
-	align	4
 _632:
-	dd	_46
-	dd	577
-	dd	5
-	align	4
-_634:
-	dd	_46
+	dd	_48
 	dd	580
 	dd	5
 	align	4
-_651:
-	dd	3
-	dd	0
-	dd	0
+_634:
+	dd	_48
+	dd	581
+	dd	5
 	align	4
-_639:
-	dd	_46
-	dd	582
-	dd	7
-	align	4
-_646:
-	dd	3
-	dd	0
-	dd	0
-	align	4
-_645:
-	dd	_46
+_636:
+	dd	_48
 	dd	584
-	dd	9
+	dd	5
+	align	4
+_653:
+	dd	3
+	dd	0
+	dd	0
+	align	4
+_641:
+	dd	_48
+	dd	586
+	dd	7
 	align	4
 _648:
 	dd	3
@@ -3797,8 +3830,8 @@ _648:
 	dd	0
 	align	4
 _647:
-	dd	_46
-	dd	586
+	dd	_48
+	dd	588
 	dd	9
 	align	4
 _650:
@@ -3807,29 +3840,29 @@ _650:
 	dd	0
 	align	4
 _649:
-	dd	_46
-	dd	588
+	dd	_48
+	dd	590
 	dd	9
-	align	4
-_661:
-	dd	3
-	dd	0
-	dd	0
 	align	4
 _652:
-	dd	_46
-	dd	591
-	dd	7
-	align	4
-_658:
 	dd	3
 	dd	0
 	dd	0
 	align	4
-_657:
-	dd	_46
-	dd	593
+_651:
+	dd	_48
+	dd	592
 	dd	9
+	align	4
+_663:
+	dd	3
+	dd	0
+	dd	0
+	align	4
+_654:
+	dd	_48
+	dd	595
+	dd	7
 	align	4
 _660:
 	dd	3
@@ -3837,24 +3870,34 @@ _660:
 	dd	0
 	align	4
 _659:
-	dd	_46
-	dd	595
+	dd	_48
+	dd	597
 	dd	9
 	align	4
-_665:
-	dd	_46
+_662:
+	dd	3
+	dd	0
+	dd	0
+	align	4
+_661:
+	dd	_48
 	dd	599
+	dd	9
+	align	4
+_667:
+	dd	_48
+	dd	603
 	dd	4
 	align	4
-_669:
-	dd	_46
-	dd	603
+_671:
+	dd	_48
+	dd	607
 	dd	3
-_732:
-	db	"GetTempDirectory",0
-_733:
-	db	"resetCache",0
 _734:
+	db	"GetTempDirectory",0
+_735:
+	db	"resetCache",0
+_736:
 	db	"cache",0
 	align	4
 _1:
@@ -3862,194 +3905,224 @@ _1:
 	dd	2147483647
 	dd	0
 	align	4
-_674:
+_676:
 	dd	_1
-_735:
+_737:
 	db	"hasCache",0
 	align	4
-_676:
+_678:
 	dd	0
 	align	4
-_731:
+_733:
 	dd	1
-	dd	_732
+	dd	_734
 	dd	2
-	dd	_733
-	dd	_479
+	dd	_735
+	dd	_481
 	dd	-4
 	dd	4
-	dd	_734
-	dd	_543
-	dd	_674
-	dd	4
-	dd	_735
-	dd	_479
+	dd	_736
+	dd	_545
 	dd	_676
+	dd	4
+	dd	_737
+	dd	_481
+	dd	_678
 	dd	0
 	align	4
-_673:
-	dd	_46
-	dd	654
-	dd	3
-	align	4
 _675:
-	dd	_46
-	dd	655
+	dd	_48
+	dd	658
 	dd	3
 	align	4
 _677:
-	dd	_46
-	dd	658
+	dd	_48
+	dd	659
 	dd	3
-_725:
-	db	"charSize",0
-_726:
-	db	"chars",0
+	align	4
+_679:
+	dd	_48
+	dd	662
+	dd	3
 _727:
-	db	"size",0
+	db	"charSize",0
 _728:
-	db	"bank",0
+	db	"chars",0
 _729:
+	db	"size",0
+_730:
+	db	"bank",0
+_731:
 	db	"realSize",0
+	align	4
+_726:
+	dd	3
+	dd	0
+	dd	2
+	dd	_727
+	dd	_481
+	dd	-8
+	dd	2
+	dd	_728
+	dd	_481
+	dd	-12
+	dd	2
+	dd	_729
+	dd	_481
+	dd	-16
+	dd	2
+	dd	_730
+	dd	_670
+	dd	-20
+	dd	2
+	dd	_731
+	dd	_481
+	dd	-24
+	dd	0
+	align	4
+_683:
+	dd	_48
+	dd	663
+	dd	4
+	align	4
+_684:
+	dd	_48
+	dd	664
+	dd	4
+	align	4
+_689:
+	dd	_48
+	dd	667
+	dd	4
+	align	4
+_691:
+	dd	_48
+	dd	668
+	dd	4
+	align	4
+_693:
+	dd	_48
+	dd	669
+	dd	4
+	align	4
+_695:
+	dd	_48
+	dd	670
+	dd	4
+	align	4
+_697:
+	dd	_48
+	dd	673
+	dd	4
+	align	4
+_701:
+	dd	_48
+	dd	676
+	dd	4
+	align	4
+_711:
+	dd	3
+	dd	0
+	dd	0
+	align	4
+_703:
+	dd	_48
+	dd	678
+	dd	5
+	align	4
+_704:
+	dd	_48
+	dd	679
+	dd	5
+	align	4
+_705:
+	dd	_48
+	dd	680
+	dd	5
+	align	4
+_708:
+	dd	_48
+	dd	683
+	dd	5
+	align	4
+_712:
+	dd	_48
+	dd	687
+	dd	4
+	align	4
+_725:
+	dd	3
+	dd	0
+	dd	0
+	align	4
+_714:
+	dd	_48
+	dd	688
+	dd	5
 	align	4
 _724:
 	dd	3
 	dd	0
-	dd	2
-	dd	_725
-	dd	_479
-	dd	-8
-	dd	2
-	dd	_726
-	dd	_479
-	dd	-12
-	dd	2
-	dd	_727
-	dd	_479
-	dd	-16
-	dd	2
-	dd	_728
-	dd	_668
-	dd	-20
-	dd	2
-	dd	_729
-	dd	_479
-	dd	-24
 	dd	0
 	align	4
-_681:
-	dd	_46
-	dd	659
-	dd	4
-	align	4
-_682:
-	dd	_46
-	dd	660
-	dd	4
-	align	4
-_687:
-	dd	_46
-	dd	663
-	dd	4
-	align	4
-_689:
-	dd	_46
-	dd	664
-	dd	4
-	align	4
-_691:
-	dd	_46
-	dd	665
-	dd	4
-	align	4
-_693:
-	dd	_46
-	dd	666
-	dd	4
-	align	4
-_695:
-	dd	_46
-	dd	669
-	dd	4
-	align	4
-_699:
-	dd	_46
-	dd	672
-	dd	4
-	align	4
-_709:
-	dd	3
-	dd	0
-	dd	0
-	align	4
-_701:
-	dd	_46
-	dd	674
-	dd	5
-	align	4
-_702:
-	dd	_46
-	dd	675
-	dd	5
-	align	4
-_703:
-	dd	_46
-	dd	676
-	dd	5
-	align	4
-_706:
-	dd	_46
-	dd	679
-	dd	5
-	align	4
-_710:
-	dd	_46
-	dd	683
-	dd	4
-	align	4
-_723:
-	dd	3
-	dd	0
-	dd	0
-	align	4
-_712:
-	dd	_46
-	dd	684
-	dd	5
-	align	4
-_722:
-	dd	3
-	dd	0
-	dd	0
-	align	4
-_715:
-	dd	_46
-	dd	685
+_717:
+	dd	_48
+	dd	689
 	dd	6
 	align	4
-_730:
-	dd	_46
-	dd	691
+_732:
+	dd	_48
+	dd	695
 	dd	3
-_743:
+_745:
 	db	"KeepSystemAlive",0
 	align	4
-_742:
+_744:
 	dd	1
-	dd	_743
-	dd	0
-	align	4
-_736:
-	dd	_46
-	dd	720
-	dd	2
-	align	4
-_741:
-	dd	3
-	dd	0
+	dd	_745
 	dd	0
 	align	4
 _738:
-	dd	_46
-	dd	720
+	dd	_48
+	dd	724
+	dd	2
+	align	4
+_743:
+	dd	3
+	dd	0
+	dd	0
+	align	4
+_740:
+	dd	_48
+	dd	724
 	dd	12
+_752:
+	db	"GetMousePosition",0
+_753:
+	db	"point",0
+	align	4
+_751:
+	dd	1
+	dd	_752
+	dd	2
+	dd	_753
+	dd	_494
+	dd	-4
+	dd	0
+	align	4
+_746:
+	dd	_48
+	dd	741
+	dd	3
+_747:
+	db	"i",0
+	align	4
+_749:
+	dd	_48
+	dd	742
+	dd	3
+	align	4
+_750:
+	dd	_48
+	dd	743
+	dd	3
